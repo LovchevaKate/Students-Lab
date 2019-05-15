@@ -1,5 +1,5 @@
 body{
-    margin: 0 10%;
+    margin: 0 20%;
     font-family: 'Fjalla One';
    color: #acacac;
 }
@@ -11,14 +11,19 @@ body{
 }
 .menu {
     display: block;
-    width: 660px;
+    width: 100%;
+  }
+
+  .navLOGO
+  {
+    margin-top: -4%;
+    margin-left:-2%; 
   }
 
 .navul {
     list-style: none;
-    padding: 0;
-    margin: 10;
     font-size: 12px;
+    padding: 2%;
   }
 
   .navul div
@@ -28,8 +33,7 @@ body{
 
   .navbutton
   {
-    margin-top: 15px;
-    display: inline-block;
+    display: inline-block;     
   }
 
   .navbutton a {
