@@ -1,0 +1,88 @@
+body{
+    margin: 0 10%;
+    font-family: 'Fjalla One';
+   color: #acacac;
+}
+.headerhr{
+    width: 100%;
+    height: 5px;
+    align-content: center;
+    background-color: #5c5c5c;
+}
+.menu {
+    display: block;
+    width: 660px;
+  }
+
+.navul {
+    list-style: none;
+    padding: 0;
+    margin: 10;
+    font-size: 12px;
+  }
+
+  .navul div
+  {
+    display: inline-block;
+  }
+
+  .navbutton
+  {
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+  .navbutton a {
+    text-decoration: none;
+    padding: 10px;    
+    border-radius: 3px;
+    background-color: white;
+    color: #acacac;
+  }
+
+  .navbutton a:hover,a:active{    
+  background: #e24f43;
+  color: white;
+  border-color: #e24f43;
+  }
+
+  .navli
+  {
+      float: right;
+  }
+
+  .logo_p
+  {
+      font-size: 30px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #5c5c5c;
+  }
+
+  .small_logo_p
+  {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .small_p
+  {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .p{
+    font-size: 20px;
+    font-weight: 400;
+    color: #5c5c5c;
+    text-transform: uppercase;
+  }
+
+  .content_p
+  {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Source Sans Pro';
+    line-height: 24px;
+  }
