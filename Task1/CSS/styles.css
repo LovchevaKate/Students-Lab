@@ -86,3 +86,36 @@ body{
     font-family: 'Source Sans Pro';
     line-height: 24px;
   }
+
+  .card
+  {
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    width:270px;
+    height: 458px;
+    float: left;
+    border-radius: 2px;
+    margin: 0 10px;
+  }
+  .cards:after 
+  {
+    content: "";
+    display: table;
+    clear: both;
+    margin: auto;
+  }
+
+  .container
+  {
+      padding: 15px 30px 30px 30px;
+  }
+
+  .card_button
+  {
+    background: #e24f43;
+    color: white;
+    border: none;
+    padding: 10px;    
+    border-radius: 3px;
+    font-family: 'Fjalla One';
+  }
