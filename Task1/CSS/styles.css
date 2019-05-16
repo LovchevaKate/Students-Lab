@@ -125,7 +125,7 @@ body{
 
   .cards{
 margin: 5% 0;
-width: 110%;
+width: 100%;
 background-color: #5c5c5c;
 display: inline-block;
 padding: 0;
@@ -175,8 +175,6 @@ padding: 0;
 {
   background-color: #5c5c5c;
   border-radius: 2px;
-  padding: 1% 5% 4% 5%;
-  margin: 5% 0;
   width: 100%;
 }
 
@@ -211,9 +209,14 @@ padding: 0;
     font-family: 'Fjalla One';
 }
 
-.div_form .div_form_p
+.div_form, .div_form_p
 {
   display: inline-block;
+  margin: 0 3%;
+}
+.div_form
+{
+  display: inline;
 }
 
 .a_arrow {
