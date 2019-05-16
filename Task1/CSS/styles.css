@@ -1,5 +1,5 @@
 body{
-    margin: 0 20%;
+    margin: 0 18%;
     font-family: 'Fjalla One';
    color: #acacac;
 }
@@ -81,6 +81,7 @@ body{
     font-weight: 400;
     color: #5c5c5c;
     text-transform: uppercase;
+    margin-bottom: -1%;
   }
 
   .content_p
@@ -99,19 +100,19 @@ body{
     height: 458px;
     float: left;
     border-radius: 2px;
-    margin: 0 10px;
+    margin: 0 13px;
   }
+
   .cards:after 
   {
     content: "";
     display: table;
     clear: both;
-    margin: auto;
   }
 
   .container
   {
-      padding: 15px 30px 30px 30px;
+    padding: 15px 30px 30px 30px;
   }
 
   .card_button
@@ -123,3 +124,30 @@ body{
     border-radius: 3px;
     font-family: 'Fjalla One';
   }
+
+  .footer_div
+  {
+    display: inline-block;
+    margin: 2%;
+  }
+
+  
+.social_div {
+    display: inline-block;
+    margin: 10px;
+
+  }
+
+
+.social {
+  display: inline-block;
+  
+}
+
+.social_a
+{
+  text-decoration: none;      
+  color: #acacac;
+}
+
+
