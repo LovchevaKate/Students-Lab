@@ -134,6 +134,7 @@ body
   height: 350px;
   position:relative;
   box-sizing: border-box;
+  margin-bottom: 2%;
 
   .div1_img, .div2_img, .div3_img, .div4_img {
     width: 50%;
@@ -219,7 +220,7 @@ body
 }
 
 .cards {
-  margin: 5.2% 0;
+  margin: 65px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -290,7 +291,7 @@ body
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 3.5%;
+  margin-top: 42px;
 
   .div_form {
     margin-left: 20px;
