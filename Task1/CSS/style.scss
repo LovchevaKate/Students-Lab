@@ -5,6 +5,7 @@ $light-second-color: #acacac;
 $card-border-color:#dfdfdf;
 $dark-second-color: #5c5c5c;
 $light-color: #ffffff;
+$border-radius :3px;
 
 $main-img: url(../img/main.png);
 
@@ -15,7 +16,7 @@ body
   color: $light-second-color;
 }
 
-.header-line
+.header_line
 {
   height: 5px;
   background-color: $dark-second-color;
@@ -25,12 +26,12 @@ body
   margin: 0;
 }
 
-.hr
+.line
 {
   background-color: $light-second-color;
   height: 1px;
   border:none;
-  margin: 2.5% 0;
+  margin: 2% 0;
   display: flex;
 }
 
@@ -50,7 +51,7 @@ body
 
   .navbutton {
     text-decoration: none;    
-    border-radius: 3px;
+    border-radius: $border-radius;
     color: $light-second-color;
     font-size: 15px;
     padding: 15px;
@@ -65,28 +66,35 @@ body
 
 }
 
-.div_mainimg {
+.block_mainimg {
   background-image: $main-img;
   background-size: cover;
-  height: 443px;
-  position:relative;
+  height: 440px; 
+  margin: 0 auto 0 auto;
 
-  .div1_mainimg, .div2_mainimg, .div3_mainimg, .div4_mainimg {
+  .img_layer {
+    display: flex;
+    height: 220px;
+  }
+
+  .block1_mainimg, .block2_mainimg, .block3_mainimg, .block4_mainimg {
     width: 50%;
-    height: 50%;
-    position:absolute;    
+    position: relative;
 
-    .a_mainimg 
+    .link_mainimg 
     {
-      position:absolute;
-      bottom:0;
-      left:0;
       background: #000000;
       color: $light-color;  
-      border-radius: 3px;
+      border-radius: $border-radius;
       text-decoration: none;
       padding: 10px;
       font-size: 18px;
+      display: block;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
 
       &:hover{
         background: $main-color;
@@ -96,72 +104,41 @@ body
 
   }
 
-  .div1_mainimg {
-    top:0;
-    left:0;
-    background-color:rgba(0,0,0,.5);    
+  .block1_mainimg {
+    background-color:rgba(0,0,0,.5);
   }
 
-  .div2_mainimg {
-    top:0;
-    right:0;
+  .block2_mainimg {
     background-color:rgba(0,0,0,.3);
   }
 
-  .div3_mainimg {
-    bottom:0;
-    left:0;
+  .block3_mainimg {
     background-color:rgba(0,0,0,.3);
   }
 
-  .div4_mainimg {    
-    bottom:0;
-    right:0;   
+  .block4_mainimg {  
     background-color:rgba(0,0,0,.1); 
   }
 
 }
 
-.divs_img
+.blocks_img
 {
-  width: 100%;
-  height: 350px;
-  position:relative;
-  box-sizing: border-box;
-  margin-bottom: 2%;
+  height: 300px;
+  margin: 0 auto 0 auto;
 
-  .div1_img, .div2_img, .div3_img, .div4_img {
-    width: 50%;
+  .block1_img, .block2_img, .block3_img, .block4_img {
     height: 100px;
-    position:absolute;
-  }
-
-  .div1_img {
-    top:10%;
-    left:0;
-  }
-
-  .div2_img {
-    top:10%;
-    left: 50%;
-  }
-
-  .div3_img {
-    bottom:15%;
-    left:0;
-  }
-
-  .div4_img {
-    bottom:15%;
-    left: 50%;
-  }
-
-  div 
-  {
     display: inline-flex;
-    height: 130px;
   }
 
+  .layer {
+    display: inline-flex;
+    justify-self: space-between;
+    align-items: flex-start;
+    margin-bottom: 3%;
+    height: 140px;;
+  }
 }
 
 .logo_p {
@@ -178,7 +155,7 @@ body
   margin-top: -5px;
 }
 
-.div_p {
+.second_p {
   font-size: 30px;
   font-weight: 400;
   text-transform: uppercase;
@@ -192,13 +169,13 @@ body
   text-transform: uppercase; 
 }
 
-.div_content {
+.block_content {
   display: flex;
   flex-direction: column;
   margin: 0 20px;
 }
 
-.p {
+.p_content {
   font-size: 20px;
   font-weight: 400;
   color: $dark-second-color;
@@ -206,7 +183,7 @@ body
   margin-bottom: -1%;
 }
 
-.content_p {
+.content {
   font-size: 14px;
   font-weight: 400;
   font-family: $second-font;
@@ -214,19 +191,18 @@ body
 }
 
 .cards {
-  margin: 65px 0;
-  width: 100%;
+  margin: 65px auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  border-radius: 2px;
+  border-radius: $border-radius;
+  flex-wrap: wrap;
 
   .card {
     border: 1px solid $card-border-color;
     background-color:$light-color;
     width:270px;
     height: 460px;
-    border-radius: 3px;
+    border-radius: $border-radius;
 
     .container {
       padding: 0 30px 30px 30px;
@@ -236,7 +212,7 @@ body
         color: $light-color;
         border: none;
         padding: 10px;    
-        border-radius: 3px;
+        border-radius: $border-radius;
         font-family: $main-font;
         margin-top: 10px;
       }
@@ -249,20 +225,18 @@ body
 
 .footer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 
-  .footer_div {
+  .footer_block {
     width:270px;
   
-    .social_div {
-      display: inline-block;
+    .social_block {
+      display: inline-flex;
 
-      .social_a {
+      .social_link {
         text-decoration: none;      
         color: $light-second-color;
-        display: flex;
-        flex-direction: row;
+        display: inline-flex;
         align-items: center;
         justify-content: space-around;
         margin-right: 20px;
@@ -270,6 +244,7 @@ body
         .social {
           margin-right: 5px;
         }
+
       }
       
     }
@@ -280,14 +255,14 @@ body
 
 .form {
   background-color: $dark-second-color;
-  border-radius: 2px;
-  width: 100%;
+  border-radius: $border-radius;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
+  flex-wrap: wrap;
 
-  .div_form {
+  .block_form {
     margin-left: 20px;
   
     .form_p {
@@ -301,12 +276,12 @@ body
       background-color: $light-color;
       font-family: $second-font $card-border-color;
       height: 35px;
-      width: 340px;
+      width: 300px;
       border: none;
-      border-radius: 3px;
-      display: inline-block;
-      margin-left: 20px;
+      border-radius: $border-radius;
+      display: inline-flex;
       padding-left:10px; 
+      margin-left: 20px;
     }
   }
 
@@ -314,7 +289,7 @@ body
     background: $main-color;
     color: $light-color;
     border: none;
-    border-radius: 3px;
+    border-radius: $border-radius;
     padding: 10px 30px;
     height: 40px; 
     width: 130px;
@@ -324,22 +299,21 @@ body
 
 }
 
-.a_arrow {
+.link_arrow {
   background-color: $main-color;
   width: 200px;
-  border-radius: 4px;
+  border-radius: $border-radius;
   text-decoration: none; 
   display: flex;
   justify-content: space-around;
   padding: 0 15px;
   height: 55px;
-  flex-direction: row;
   align-items: center;
 
   .arrow {     
     color: $light-color;
   
-    .p_arrow {
+    .p_link_arrow {
       font-size: 20px;
     }   
 
@@ -347,12 +321,11 @@ body
 
 }
 
-.div_second {  
-  width: 100%;
+.block_second {  
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
   height: 120px;
-  margin: 2% 0;
+  margin: 2% auto;
+  flex-wrap: wrap;
 }

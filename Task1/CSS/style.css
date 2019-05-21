@@ -3,7 +3,7 @@ body {
   font-family: "Fjalla One";
   color: #acacac; }
 
-.header-line {
+.header_line {
   height: 5px;
   background-color: #5c5c5c;
   border: none;
@@ -11,11 +11,11 @@ body {
   top: 0;
   margin: 0; }
 
-.hr {
+.line {
   background-color: #acacac;
   height: 1px;
   border: none;
-  margin: 2.5% 0;
+  margin: 2% 0;
   display: flex; }
 
 .menu {
@@ -38,69 +38,53 @@ body {
       background: #e24f43;
       color: #ffffff; }
 
-.div_mainimg {
+.block_mainimg {
   background-image: url(../img/main.png);
   background-size: cover;
-  height: 443px;
-  position: relative; }
-  .div_mainimg .div1_mainimg, .div_mainimg .div2_mainimg, .div_mainimg .div3_mainimg, .div_mainimg .div4_mainimg {
+  height: 440px;
+  margin: 0 auto 0 auto; }
+  .block_mainimg .img_layer {
+    display: flex;
+    height: 220px; }
+  .block_mainimg .block1_mainimg, .block_mainimg .block2_mainimg, .block_mainimg .block3_mainimg, .block_mainimg .block4_mainimg {
     width: 50%;
-    height: 50%;
-    position: absolute; }
-    .div_mainimg .div1_mainimg .a_mainimg, .div_mainimg .div2_mainimg .a_mainimg, .div_mainimg .div3_mainimg .a_mainimg, .div_mainimg .div4_mainimg .a_mainimg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    position: relative; }
+    .block_mainimg .block1_mainimg .link_mainimg, .block_mainimg .block2_mainimg .link_mainimg, .block_mainimg .block3_mainimg .link_mainimg, .block_mainimg .block4_mainimg .link_mainimg {
       background: #000000;
       color: #ffffff;
       border-radius: 3px;
       text-decoration: none;
       padding: 10px;
-      font-size: 18px; }
-      .div_mainimg .div1_mainimg .a_mainimg:hover, .div_mainimg .div2_mainimg .a_mainimg:hover, .div_mainimg .div3_mainimg .a_mainimg:hover, .div_mainimg .div4_mainimg .a_mainimg:hover {
+      font-size: 18px;
+      display: block;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+      .block_mainimg .block1_mainimg .link_mainimg:hover, .block_mainimg .block2_mainimg .link_mainimg:hover, .block_mainimg .block3_mainimg .link_mainimg:hover, .block_mainimg .block4_mainimg .link_mainimg:hover {
         background: #e24f43; }
-  .div_mainimg .div1_mainimg {
-    top: 0;
-    left: 0;
+  .block_mainimg .block1_mainimg {
     background-color: rgba(0, 0, 0, 0.5); }
-  .div_mainimg .div2_mainimg {
-    top: 0;
-    right: 0;
+  .block_mainimg .block2_mainimg {
     background-color: rgba(0, 0, 0, 0.3); }
-  .div_mainimg .div3_mainimg {
-    bottom: 0;
-    left: 0;
+  .block_mainimg .block3_mainimg {
     background-color: rgba(0, 0, 0, 0.3); }
-  .div_mainimg .div4_mainimg {
-    bottom: 0;
-    right: 0;
+  .block_mainimg .block4_mainimg {
     background-color: rgba(0, 0, 0, 0.1); }
 
-.divs_img {
-  width: 100%;
-  height: 350px;
-  position: relative;
-  box-sizing: border-box;
-  margin-bottom: 2%; }
-  .divs_img .div1_img, .divs_img .div2_img, .divs_img .div3_img, .divs_img .div4_img {
-    width: 50%;
+.blocks_img {
+  height: 300px;
+  margin: 0 auto 0 auto; }
+  .blocks_img .block1_img, .blocks_img .block2_img, .blocks_img .block3_img, .blocks_img .block4_img {
     height: 100px;
-    position: absolute; }
-  .divs_img .div1_img {
-    top: 10%;
-    left: 0; }
-  .divs_img .div2_img {
-    top: 10%;
-    left: 50%; }
-  .divs_img .div3_img {
-    bottom: 15%;
-    left: 0; }
-  .divs_img .div4_img {
-    bottom: 15%;
-    left: 50%; }
-  .divs_img div {
+    display: inline-flex; }
+  .blocks_img .layer {
     display: inline-flex;
-    height: 130px; }
+    justify-self: space-between;
+    align-items: flex-start;
+    margin-bottom: 3%;
+    height: 140px; }
 
 .logo_p {
   font-size: 30px;
@@ -114,7 +98,7 @@ body {
   font-weight: 400;
   margin-top: -5px; }
 
-.div_p {
+.second_p {
   font-size: 30px;
   font-weight: 400;
   text-transform: uppercase;
@@ -126,31 +110,30 @@ body {
   font-weight: 400;
   text-transform: uppercase; }
 
-.div_content {
+.block_content {
   display: flex;
   flex-direction: column;
   margin: 0 20px; }
 
-.p {
+.p_content {
   font-size: 20px;
   font-weight: 400;
   color: #5c5c5c;
   text-transform: uppercase;
   margin-bottom: -1%; }
 
-.content_p {
+.content {
   font-size: 14px;
   font-weight: 400;
   font-family: "Source Sans Pro";
   line-height: 24px; }
 
 .cards {
-  margin: 65px 0;
-  width: 100%;
+  margin: 65px auto;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  border-radius: 2px; }
+  border-radius: 3px;
+  flex-wrap: wrap; }
   .cards .card {
     border: 1px solid #dfdfdf;
     background-color: #ffffff;
@@ -170,48 +153,46 @@ body {
 
 .footer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between; }
-  .footer .footer_div {
+  .footer .footer_block {
     width: 270px; }
-    .footer .footer_div .social_div {
-      display: inline-block; }
-      .footer .footer_div .social_div .social_a {
+    .footer .footer_block .social_block {
+      display: inline-flex; }
+      .footer .footer_block .social_block .social_link {
         text-decoration: none;
         color: #acacac;
-        display: flex;
-        flex-direction: row;
+        display: inline-flex;
         align-items: center;
         justify-content: space-around;
         margin-right: 20px; }
-        .footer .footer_div .social_div .social_a .social {
+        .footer .footer_block .social_block .social_link .social {
           margin-right: 5px; }
 
 .form {
   background-color: #5c5c5c;
-  border-radius: 2px;
-  width: 100%;
+  border-radius: 3px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px; }
-  .form .div_form {
+  margin-top: 40px;
+  flex-wrap: wrap; }
+  .form .block_form {
     margin-left: 20px; }
-    .form .div_form .form_p {
+    .form .block_form .form_p {
       font-size: 30px;
       font-weight: 400;
       text-transform: uppercase;
       color: #ffffff; }
-    .form .div_form .form_input {
+    .form .block_form .form_input {
       background-color: #ffffff;
       font-family: "Source Sans Pro" #dfdfdf;
       height: 35px;
-      width: 340px;
+      width: 300px;
       border: none;
       border-radius: 3px;
-      display: inline-block;
-      margin-left: 20px;
-      padding-left: 10px; }
+      display: inline-flex;
+      padding-left: 10px;
+      margin-left: 20px; }
   .form .form_submit {
     background: #e24f43;
     color: #ffffff;
@@ -223,29 +204,27 @@ body {
     font: 18px "Fjalla One";
     margin-right: 4%; }
 
-.a_arrow {
+.link_arrow {
   background-color: #e24f43;
   width: 200px;
-  border-radius: 4px;
+  border-radius: 3px;
   text-decoration: none;
   display: flex;
   justify-content: space-around;
   padding: 0 15px;
   height: 55px;
-  flex-direction: row;
   align-items: center; }
-  .a_arrow .arrow {
+  .link_arrow .arrow {
     color: #ffffff; }
-    .a_arrow .arrow .p_arrow {
+    .link_arrow .arrow .p_link_arrow {
       font-size: 20px; }
 
-.div_second {
-  width: 100%;
+.block_second {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
   height: 120px;
-  margin: 2% 0; }
+  margin: 2% auto;
+  flex-wrap: wrap; }
 
 /*# sourceMappingURL=style.css.map */
