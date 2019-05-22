@@ -35,3 +35,33 @@ function getMaxSubSum_n2(arr) {
     let arr = prompt('Array: ', '0, 8, 7');
     t1o_result.value = getMaxSubSum_n(arr.split(', '));
   };
+
+
+function getMinElement(arr) {
+  return Math.min.apply(null, arr);
+}
+
+function getMaxElement(arr) {
+  return Math.max.apply(null, arr);
+}
+
+function getMidElement(arr) {
+  let sum = 0;
+  for(let i = 0; i < arr.length; i++) {
+      sum += Number(arr[i]);
+  }
+  return sum / arr.length;
+}
+
+
+let min_element = document.getElementById('min_element');
+let max_element = document.getElementById('max_element');
+let mid_element = document.getElementById('mid_element');
+
+search_button.onclick = function() { 
+    let arr = prompt('Array: ', '0, 8, 7, 3');
+    min_element.value = getMinElement(arr.split(', '));
+    max_element.value = getMaxElement(arr.split(', '));
+    mid_element.value = getMidElement(arr.split(', '));
+  };
+
