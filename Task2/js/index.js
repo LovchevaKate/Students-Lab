@@ -142,29 +142,79 @@ function showresult(choise){
 
 //5. Array Sorter
 
+arraySort_button.onclick = function() {  
+  let arr = prompt('Array: ', '0, 8, 7, 9, 1'); 
+  arrHighestSort_result.value = ArraySort.arrHighestSort(arr.split(', '));
+  arrLowestSort_result.value = ArraySort.arrLowestSort(arr.split(', '));
+  arrReverseSort_result.value = ArraySort.arrReverseSort(arr.split(', '));
+  arrEvenSort_result.value = ArraySort.arrEvenSort(arr.split(', '));
+  arrОddSort_result.value = ArraySort.arrОddSort(arr.split(', '));
+  getMinElement_result.value = ArraySort.getMinElement(arr.split(', '));
+  getMaxElement_result.value = ArraySort.getMaxElement(arr.split(', '));
+};
 
+let ArraySort = {
 
-//6. Binary Converter
+  arrHighestSort : function(arr) {
+    result = arr.sort(function(a, b){return a - b});
+  return result;
+  },
 
-function binaryConverter(n, base) {
- 
-  if (n < 0) {
-    n = 0xFFFFFFFF + n + 1;
-  } 
-  switch (base) {  
-    case 'B':  
-    return parseInt(n, 10).toString(2);
-    case 'H':  
-    return parseInt(n, 10).toString(16);
-    case 'O':  
-    return parseInt(n, 10).toString(8);
-    default:  
-    return("Error!");  
-  }  
+  arrLowestSort : function(arr) {
+    result = arr.sort(function(a, b){return b - a});
+  return result;
+  },
+
+  arrReverseSort : function(arr) {
+    result = arr.reverse();
+  return result;
+  },
+
+  arrEvenSort : function(arr) {
+    result = [];
+    for (let i = 0; i <= arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        result.unshift(arr[i]);
+      }
+    }
+  return result;
+  },
+
+  arrОddSort : function(arr) {
+    result = [];
+    for (let i = 0; i <= arr.length-1; i++) {
+      if (arr[i] % 2 != 0) {
+        console.log(arr[i]);
+        result.unshift(arr[i]);
+      }
+    }
+  return result;
+  },
+  
+  getMinElement : function(arr) {
+    return Math.min.apply(null, arr);
+  },
+  
+  getMaxElement : function(arr) {
+    return Math.max.apply(null, arr);
+  }
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+//6. Binary Converter
 
 var ConvertBase = function (num) {
   return {
