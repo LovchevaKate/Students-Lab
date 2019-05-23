@@ -106,15 +106,14 @@ function formatDate(date) {
 
 //3. Text Formatter
 
-Английский
- Копировать
-Mul Div sun sub percent
 
 //4. String calculator
 let Calculator = {
   sum : function(num1, num2)
   {
-    return num1+num2;
+    let res = num1+num2;
+    console.log(res);
+    return res;
   },
   sub : function(num1, num2)
   {
@@ -137,19 +136,19 @@ let Calculator = {
 function showresult(choise){
   let number1=parseFloat(document.getElementById('number1').value);
   let number2=parseFloat(document.getElementById('number2').value);
-  var result;
+  let result;
   
   switch(choise)
     {
-    case '+': Calculator.sum(number1, number2); break;
-    case '-': Calculator.sub(number1, number2); break;
-    case '*': Calculator.mul(number1, number2); break;
-    case '/': Calculator.div(number1, number2); break;
-    case '%': Calculator.percent(number1, number2); break;
+    case '+': result = Calculator.sum(number1, number2); break;
+    case '-': result = Calculator.sub(number1, number2); break;
+    case '*': result = Calculator.mul(number1, number2); break;
+    case '/': result = Calculator.div(number1, number2); break;
+    case '%': result = Calculator.percent(number1, number2); break;
     default: break;
         
     }
-  document.getElementById('result').value=result;
+  document.getElementById('calculator_result').value=result;
 }
 
 //5. Array Sorter
