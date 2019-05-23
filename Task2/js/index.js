@@ -146,10 +146,99 @@ function showresult(choise){
 
 //6. Binary Converter
 
+function binaryConverter(n, base) {
+ 
+  if (n < 0) {
+    n = 0xFFFFFFFF + n + 1;
+  } 
+  switch (base) {  
+    case 'B':  
+    return parseInt(n, 10).toString(2);
+    case 'H':  
+    return parseInt(n, 10).toString(16);
+    case 'O':  
+    return parseInt(n, 10).toString(8);
+    default:  
+    return("Error!");  
+  }  
+}
 
 
 
 
+var ConvertBase = function (num) {
+  return {
+      from : function (baseFrom) {
+          return {
+              to : function (baseTo) {
+                  return parseInt(num, baseFrom).toString(baseTo);
+              }
+          };
+      }
+  };
+};
+  
+// binary to decimal
+ConvertBase.bin2dec = function (num) {
+  return ConvertBase(num).from(2).to(10);
+};
 
+// binary to hexadecimal
+ConvertBase.bin2hex = function (num) {
+  return ConvertBase(num).from(2).to(16);
+};
 
+// decimal to binary
+ConvertBase.dec2bin = function (num) {
+  return ConvertBase(num).from(10).to(2);
+};
 
+// decimal to hexadecimal
+ConvertBase.dec2hex = function (num) {
+  return ConvertBase(num).from(10).to(16);
+};
+
+// hexadecimal to binary
+ConvertBase.hex2bin = function (num) {
+  return ConvertBase(num).from(16).to(2);
+};
+
+// hexadecimal to decimal
+ConvertBase.hex2dec = function (num) {
+  return ConvertBase(num).from(16).to(10);
+};
+      
+
+bin2dec_button.onclick = function() {   
+  let numConvert=Number(document.getElementById('num_converter').value);
+  result_converter.value= ConvertBase.bin2dec(numConvert);
+};
+
+bin2hex_button.onclick = function() {   
+  let numConvert=Number(document.getElementById('num_converter').value);
+  result_converter.value= ConvertBase.bin2hex(numConvert);
+};
+
+dec2bin_button.onclick = function() { 
+  let numConvert=Number(document.getElementById('num_converter').value); 
+  console.log(numConvert); 
+  result_converter.value= ConvertBase.dec2bin(numConvert);
+};
+
+dec2hex_button.onclick = function() {   
+  let numConvert=Number(document.getElementById('num_converter').value);
+  result_converter.value= ConvertBase.dec2hex(numConvert);
+};
+
+hex2bin_button.onclick = function() { 
+  let numConvert=Number(document.getElementById('num_converter').value);  
+  result_converter.value= ConvertBase.hex2bin(numConvert);
+};
+
+hex2dec_button.onclick = function() {  
+  let numConvert=Number(document.getElementById('num_converter').value); 
+  result_converter.value= ConvertBase.hex2dec(numConvert);
+};
+  
+  
+ 
