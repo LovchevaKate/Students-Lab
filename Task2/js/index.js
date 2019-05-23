@@ -1,8 +1,7 @@
 //1. Array Processing Tool
 
-//a. Sub Sum
-//сложность O(n2)
-function getMaxSubSum_n2(arr) {
+let SubSum = {
+  getMaxSubSum_n2: function (arr) {
     let maxSum = 0;   
     for (let i = 0; i < arr.length; i++) {
       let sumFixedStart = 0;
@@ -12,16 +11,9 @@ function getMaxSubSum_n2(arr) {
       }
     }    
     return maxSum;
-};
-  
-let t1o2_result = document.getElementById('t1o2_result');
-  t1o2.onclick = function() { 
-    let arr = prompt('Array: ', '0, 8, 7');
-    t1o2_result.value = getMaxSubSum_n2(arr.split(', '));
-};
+},
 
-//сложность O(n)
-function getMaxSubSum_n(arr) {
+getMaxSubSum_n : function(arr) {
   let maxSum = 0,
     partialSum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -30,48 +22,25 @@ function getMaxSubSum_n(arr) {
     if (partialSum < 0) partialSum = 0;
   }
   return maxSum;
-};
+},
 
-let t1o_result = document.getElementById('t1o_result');
-t1o.onclick = function() { 
-  let arr = prompt('Array: ', '0, 8, 7');
-  t1o_result.value = getMaxSubSum_n(arr.split(', '));
-};
-
-
-//b. Search
-
-function getMinElement(arr) {
+getMinElement : function(arr) {
   return Math.min.apply(null, arr);
-};
+},
 
-function getMaxElement(arr) {
+getMaxElement : function(arr) {
   return Math.max.apply(null, arr);
-};
+},
 
-function getMidElement(arr) {
+getMidElement : function(arr) {
   let sum = 0;
   for(let i = 0; i < arr.length; i++) {
       sum += Number(arr[i]);
   }
   return sum / arr.length;
-};
+},
 
-search_button.onclick = function() { 
-  let arr = prompt('Array: ', '0, 8, 7, 3');
-  min_element.value = getMinElement(arr.split(', '));
-  max_element.value = getMaxElement(arr.split(', '));
-  mid_element.value = getMidElement(arr.split(', '));
-};
-
-
-//c. Selection Task
-selection_button.onclick = function() { 
-  let arr = prompt('Array: ', '0, 2, 3, 5, 1, 4, 5, 11');
-  selection.value = getMaxSelection(arr.split(', '));
-};
-
-function getMaxSelection(arr) {
+getMaxSelection : function(arr) {
   let arr2 = [];
   let len; 
   arr2[0] = arr[0]; 
@@ -85,6 +54,37 @@ function getMaxSelection(arr) {
   }
   return arr2; 
 } 
+};
+
+//a. Sub Sum
+let t1o2_result = document.getElementById('t1o2_result');
+t1o2.onclick = function() { 
+  let arr = prompt('Array: ', '0, 8, 7');
+  t1o2_result.value = SubSum.getMaxSubSum_n2(arr.split(', '));
+};
+
+
+let t1o_result = document.getElementById('t1o_result');
+t1o.onclick = function() { 
+  let arr = prompt('Array: ', '0, 8, 7');
+  t1o_result.value = SubSum.getMaxSubSum_n(arr.split(', '));
+};
+
+
+//b. Search
+search_button.onclick = function() { 
+  let arr = prompt('Array: ', '0, 8, 7, 3');
+  min_element.value = SubSum.getMinElement(arr.split(', '));
+  max_element.value = SubSum.getMaxElement(arr.split(', '));
+  mid_element.value = SubSum.getMidElement(arr.split(', '));
+};
+
+
+//c. Selection Task
+selection_button.onclick = function() { 
+  let arr = prompt('Array: ', '0, 2, 3, 5, 1, 4, 5, 11');
+  selection.value = SubSum.getMaxSelection(arr.split(', '));
+};
 
 
 //2. Date Display Formatter
@@ -98,18 +98,41 @@ formatDate_button.onclick = function() {
 function formatDate(date) {
   console.log(date);
   let date_out = new Date(date);
-//let date_out = Date.parse(date);
-console.log(date_out);
-return date_out;
+  console.log(date_out);
+  return date_out;
 };
 
 
 
 //3. Text Formatter
 
-
+Английский
+ Копировать
+Mul Div sun sub percent
 
 //4. String calculator
+let Calculator = {
+  sum : function(num1, num2)
+  {
+    return num1+num2;
+  },
+  sub : function(num1, num2)
+  {
+    return num1-num2;
+  },
+  mul : function(num1, num2)
+  {
+    return num1*num2;
+  },
+  div : function(num1, num2)
+  {
+    return num1/num2;
+  },
+  percent : function(num1, num2)
+  {
+    return number2*100/number1;
+  }
+};
 
 function showresult(choise){
   let number1=parseFloat(document.getElementById('number1').value);
@@ -118,23 +141,12 @@ function showresult(choise){
   
   switch(choise)
     {
-    case '+':
-      result=number1+number2;
-      break;
-    case '-':
-      result=number1-number2;
-      break;
-    case '*':
-      result=number1*number2;
-      break;
-    case '/': 
-      result=number1/number2;
-      break;
-    case '%':
-      result=number2*100/number1;
-      break;
-    default:
-      break;
+    case '+': Calculator.sum(number1, number2); break;
+    case '-': Calculator.sub(number1, number2); break;
+    case '*': Calculator.mul(number1, number2); break;
+    case '/': Calculator.div(number1, number2); break;
+    case '%': Calculator.percent(number1, number2); break;
+    default: break;
         
     }
   document.getElementById('result').value=result;
