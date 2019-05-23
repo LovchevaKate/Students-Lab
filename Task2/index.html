@@ -2,101 +2,116 @@
 <html>
 <head>
     <title>Task2</title> 
-    
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro&display=swap" rel="stylesheet">
 </head>
 
 <body> 
 
-    <h2>1. Array Processing Tool</h2>
-    <h3>a. Sub Sum</h3>
-    <p>сложность O(n2)</p>
-    <input value="Start" id="t1o2" type="button">
+    <h1>1. Array Processing Tool</h1>
+    <h2>a. Sub Sum</h2>
+    <div class="task">
+    <p>Complexity O(n2)</p>
+    <input value="Start" id="t1o2" type="button" class="button">
     <br>
-    <p>Максимальная сумма элементов массива: </p>
-    <input id="t1o2_result" type="text">
+    <p>Maximum sum of array elements: </p>
+    <input id="t1o2_result" type="text" class="text-out" readonly>
 
-    <p>сложность O(n)</p>
-    <input value="Start" id="t1o" type="button">
+    <p>Complexity O(n)</p>
+    <input value="Start" id="t1o" type="button" class="button">
     <br>
-    <p>Максимальная сумма элементов массива: </p>
-    <input id="t1o_result" type="text">
+    <p>Maximum sum of array elements: </p>
+    <input id="t1o_result" type="text" class="text-out" readonly>
+    </div>
 
-    <h3>b. Search</h3>
-    <input value="Search" id="search_button" type="button">
-    <p>Минимальное значение массива: </p>
-    <input type="text" id="min_element">
-    <p>Максимальное значение массива: </p>
-    <input type="text" id="max_element">
-    <p>Медиальное значение массива: </p>
-    <input type="text" id="mid_element">
+    <h2>b. Search</h2>
+    <div class="task">
+    <input value="Search" id="search_button" type="button" class="button">
+    <p>The minimum value of the array: </p>
+    <input type="text" id="min_element" class="text-out" readonly>
+    <p>The maximum value of the array: </p>
+    <input type="text" id="max_element" class="text-out" readonly>
+    <p>The medial value of the array: </p>
+    <input type="text" id="mid_element" class="text-out" readonly> 
+    </div>
 
-    <h3>c. Selection Task</h3>
-    <input value="Start" id="selection_button" type="button">
-    <p>Последовательность максимальной длины в исходном массиве: </p>
-    <input type="text" id="selection">
+    <h2>c. Selection Task</h2>
+    <div class="task">
+    <input value="Start" id="selection_button" type="button" class="button">
+    <p>The maximum length sequence in the source array: </p>
+    <input type="text" id="selection" class="text-out" readonly>
+    </div>
 
 
 
-    <h2>2. Date Display Formatter</h2>
-    <input value="Format" id="formatDate_button" type="button">
+    <h1>2. Date Display Formatter</h1>
+    <div class="task">
+    <input value="Format" id="formatDate_button" type="button" class="button">
     <input type="text" id="date_out">
+    </div>
 
 
+    <h1>3. Text Formatter</h1>
+    <div class="task">
 
-    <h2>3. Text Formatter</h2>
+    </div>
 
 
+    <h1>4. String calculator</h1>
+    <div class="task">
+    <input type="text" id='number1' class="text-in">
+    <br>
+    <input type="text" id='number2' class="text-in">
+    <br>
+    <button onclick="showresult('+')" class="button">+</button>
+    <button onclick="showresult('-')" class="button">-</button>
+    <button onclick="showresult('*')" class="button">*</button>
+    <button onclick="showresult('/')" class="button">/</button>
+    <button onclick="showresult('%')" class="button">%</button>
+    <br>
+    <input type="text" id='result' class="text-out" readonly>
+    </div>
 
-    <h2>4. String calculator</h2>
+
     
-    <input type="text" id='number1'/>
-    <input type="text" id='number2'/>
-    
-    <button onclick="showresult('+')">+</button>
-    <button onclick="showresult('-')">-</button>
-    <button onclick="showresult('*')">*</button>
-    <button onclick="showresult('/')">/</button>
-    <button onclick="showresult('%')">%</button>
-
-    <input type="text" id='result' readonly >
-
-
-    
-    <h2>5. Array Sorter</h2>
-
-    <input value="Array sort" id="arraySort_button" type="button">
-    <p>HighestSort: </p>
-    <input type="text" id="arrHighestSort_result">
-    <p>LowestSort: </p>
-    <input type="text" id="arrLowestSort_result">
-    <p>ReverseSort: </p>
-    <input type="text" id="arrReverseSort_result">
-    <p>EvenSort: </p>
-    <input type="text" id="arrEvenSort_result">
-    <p>ОddSort: </p>
-    <input type="text" id="arrОddSort_result">
-    <p>MinimalElement: </p>
-    <input type="text" id="getMinElement_result">
-    <p>MaximumElement: </p>
-    <input type="text" id="getMaxElement_result">
+    <h1>5. Array Sorter</h1>
+    <div class="task">
+    <input value="Array sort" id="arraySort_button" type="button" class="button">
+    <p>The highest sort: </p>
+    <input type="text" id="arrHighestSort_result" class="text-out" readonly>
+    <p>The lowest sort: </p>
+    <input type="text" id="arrLowestSort_result" class="text-out" readonly>
+    <p>The reverse sort: </p>
+    <input type="text" id="arrReverseSort_result" class="text-out" readonly>
+    <p>The even sort: </p>
+    <input type="text" id="arrEvenSort_result" class="text-out" readonly>
+    <p>The odd sort: </p>
+    <input type="text" id="arrОddSort_result" class="text-out" readonly>
+    <p>The minimal element: </p>
+    <input type="text" id="getMinElement_result" class="text-out" readonly>
+    <p>The maximum element: </p>
+    <input type="text" id="getMaxElement_result" class="text-out" readonly>
+    </div>
 
 
-    <h2>6. Binary Converter</h2>
-    <input type="text" id='num_converter'/>
+    <h1>6. Binary Converter</h1>
+    <div class="task">
+    <input type="text" id='num_converter' class="text-in">
     <br>
-    <input value="binary to decimal" id="bin2dec_button" type="button">
+    <input value="binary to decimal" id="bin2dec_button" type="button" class="button">
     <br>
-    <input value="binary to hexadecimal" id="bin2hex_button" type="button">
+    <input value="binary to hexadecimal" id="bin2hex_button" type="button" class="button">
     <br>
-    <input value="decimal to binary" id="dec2bin_button" type="button">
+    <input value="decimal to binary" id="dec2bin_button" type="button" class="button">
     <br>
-    <input value="decimal to hexadecimal" id="dec2hex_button" type="button">
+    <input value="decimal to hexadecimal" id="dec2hex_button" type="button" class="button">
     <br>
-    <input value="hexadecimal to binary" id="hex2bin_button" type="button">
+    <input value="hexadecimal to binary" id="hex2bin_button" type="button" class="button">
     <br>
-    <input value="hexadecimal to decimal" id="hex2dec_button" type="button">
+    <input value="hexadecimal to decimal" id="hex2dec_button" type="button" class="button">
     <br>
-    <input type="text" id='result_converter' readonly >
+    <input type="text" id='result_converter' class="text-out" readonly>
+    </div>
 
     <script src="./js/index.js"></script>
 </body>

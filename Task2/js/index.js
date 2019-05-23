@@ -201,19 +201,6 @@ let ArraySort = {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //6. Binary Converter
 
 var ConvertBase = function (num) {
@@ -260,33 +247,32 @@ ConvertBase.hex2dec = function (num) {
       
 
 bin2dec_button.onclick = function() {   
-  let numConvert=Number(document.getElementById('num_converter').value);
+  let numConvert=document.getElementById('num_converter').value;
   result_converter.value= ConvertBase.bin2dec(numConvert);
 };
 
 bin2hex_button.onclick = function() {   
-  let numConvert=Number(document.getElementById('num_converter').value);
+  let numConvert=document.getElementById('num_converter').value;
   result_converter.value= ConvertBase.bin2hex(numConvert);
 };
 
 dec2bin_button.onclick = function() { 
-  let numConvert=Number(document.getElementById('num_converter').value); 
-  console.log(numConvert); 
+  let numConvert=document.getElementById('num_converter').value;
   result_converter.value= ConvertBase.dec2bin(numConvert);
 };
 
 dec2hex_button.onclick = function() {   
-  let numConvert=Number(document.getElementById('num_converter').value);
+  let numConvert=document.getElementById('num_converter').value;
   result_converter.value= ConvertBase.dec2hex(numConvert);
 };
 
 hex2bin_button.onclick = function() { 
-  let numConvert=Number(document.getElementById('num_converter').value);  
+  let numConvert=document.getElementById('num_converter').value;  
   result_converter.value= ConvertBase.hex2bin(numConvert);
 };
 
 hex2dec_button.onclick = function() {  
-  let numConvert=Number(document.getElementById('num_converter').value); 
+  let numConvert=document.getElementById('num_converter').value; 
   result_converter.value= ConvertBase.hex2dec(numConvert);
 };
   

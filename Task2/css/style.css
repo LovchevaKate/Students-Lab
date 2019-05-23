@@ -1,0 +1,55 @@
+body{
+    background-color: #FFFFFF;
+    margin: 80px 150px;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.button{
+    font-family: 'Maven Pro', sans-serif;
+    border: none;
+    border-radius: 3px;
+    background-color: #00CF91;
+    font-size: 22px;
+    font-weight: 400;
+    height: 30px;
+    margin: 5px 0;
+}
+
+h2 {
+    margin: 40px 60px;
+}
+
+.text-out {
+    border:none;
+    border-radius: 3px;
+    font-family: 'Maven Pro', sans-serif;
+    background-color: #AEE8E4;
+    font-size: 20px;
+    color:  #2F3640;
+    font-weight: 400;
+    height: 30px;
+    padding: 3px;
+    margin: 5px 0;
+}
+
+.text-in {
+    border:none;
+    border-radius: 3px;
+    font-family: 'Maven Pro', sans-serif;
+    background-color: #FFDFDC;
+    font-size: 20px;
+    color:  #2F3640;
+    font-weight: 400;
+    height: 30px;
+    padding: 3px;
+    margin: 5px 0;
+}
+
+.task {
+    margin: 0 60px;
+    border-radius: 3px;
+    color:  #2F3640;
+    padding: 20px 20px;
+    background-color: #E4FFF9;
+    width: 400px;
+}
