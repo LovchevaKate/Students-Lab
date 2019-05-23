@@ -1,3 +1,7 @@
+//1. Array Processing Tool
+
+//a. Sub Sum
+//сложность O(n2)
 function getMaxSubSum_n2(arr) {
     let maxSum = 0;   
     for (let i = 0; i < arr.length; i++) {
@@ -16,7 +20,7 @@ let t1o2_result = document.getElementById('t1o2_result');
     t1o2_result.value = getMaxSubSum_n2(arr.split(', '));
 };
 
-
+//сложность O(n)
 function getMaxSubSum_n(arr) {
   let maxSum = 0,
     partialSum = 0;
@@ -35,6 +39,7 @@ t1o.onclick = function() {
 };
 
 
+//b. Search
 
 function getMinElement(arr) {
   return Math.min.apply(null, arr);
@@ -52,10 +57,6 @@ function getMidElement(arr) {
   return sum / arr.length;
 };
 
-let min_element = document.getElementById('min_element');
-let max_element = document.getElementById('max_element');
-let mid_element = document.getElementById('mid_element');
-
 search_button.onclick = function() { 
   let arr = prompt('Array: ', '0, 8, 7, 3');
   min_element.value = getMinElement(arr.split(', '));
@@ -64,7 +65,7 @@ search_button.onclick = function() {
 };
 
 
-
+//c. Selection Task
 selection_button.onclick = function() { 
   let arr = prompt('Array: ', '0, 2, 3, 5, 1, 4, 5, 11');
   selection.value = getMaxSelection(arr.split(', '));
@@ -86,10 +87,64 @@ function getMaxSelection(arr) {
 } 
 
 
+//2. Date Display Formatter
+
+formatDate_button.onclick = function() { 
+
+  let date_in =  prompt('Date: ', '2015-03-25');
+  date_out.value = formatDate(date_in);
+};
+
+function formatDate(date) {
+  console.log(date);
+  let date_out = new Date(date);
+//let date_out = Date.parse(date);
+console.log(date_out);
+return date_out;
+};
 
 
 
+//3. Text Formatter
 
+
+
+//4. String calculator
+
+function showresult(choise){
+  let number1=parseFloat(document.getElementById('number1').value);
+  let number2=parseFloat(document.getElementById('number2').value);
+  var result;
+  
+  switch(choise)
+    {
+    case '+':
+      result=number1+number2;
+      break;
+    case '-':
+      result=number1-number2;
+      break;
+    case '*':
+      result=number1*number2;
+      break;
+    case '/': 
+      result=number1/number2;
+      break;
+    case '%':
+      result=number2*100/number1;
+      break;
+    default:
+      break;
+        
+    }
+  document.getElementById('result').value=result;
+}
+
+//5. Array Sorter
+
+
+
+//6. Binary Converter
 
 
 
