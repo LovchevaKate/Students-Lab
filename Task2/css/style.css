@@ -53,3 +53,16 @@ h2 {
     background-color: #E4FFF9;
     width: 400px;
 }
+
+#text-formatter {
+    border:none;
+    border-radius: 3px;
+    font-family: 'Maven Pro', sans-serif;
+    background-color: #AEE8E4;
+    font-size: 20px;
+    color:  #2F3640;
+    font-weight: 400;
+    height: 150px;
+    padding: 3px;
+    margin: 5px 0;
+}
