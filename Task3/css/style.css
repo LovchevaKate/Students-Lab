@@ -1,37 +1,37 @@
-body{
-    background-color: #FFFFFF;
-    margin: 80px 150px;
-    font-family: 'Maven Pro', sans-serif;
+body {
+  background-color: #ffffff;
+  margin: 80px 150px;
+  font-family: "Maven Pro", sans-serif;
 }
 
-.button{
-    font-family: 'Maven Pro', sans-serif;
-    border: none;
-    border-radius: 3px;
-    background-color: #35D073;
-    font-size: 22px;
-    font-weight: 400;
-    height: 30px;
-    margin: 0 25px;
+.button {
+  font-family: "Maven Pro", sans-serif;
+  border: none;
+  border-radius: 3px;
+  background-color: #35d073;
+  font-size: 22px;
+  font-weight: 400;
+  height: 30px;
+  margin: 0 25px;
 }
 
 .text-in {
-    border:none;
-    border-radius: 3px;
-    font-family: 'Maven Pro', sans-serif;
-    background-color: #FFDFDC;
-    font-size: 20px;
-    color:  #2F3640;
-    font-weight: 400;
-    height: 30px;
-    
-    margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  font-family: "Maven Pro", sans-serif;
+  background-color: #ffdfdc;
+  font-size: 20px;
+  color: #2f3640;
+  font-weight: 400;
+  height: 30px;
+
+  margin: 5px 0;
 }
 
 .task {
-    border-radius: 3px;
-    color:  #2F3640;
-    padding: 20px 20px;
-    background-color: #E4FFF9;
-    width: 400px;
+  border-radius: 3px;
+  color: #2f3640;
+  padding: 20px 20px;
+  background-color: #e4fff9;
+  width: 400px;
 }
