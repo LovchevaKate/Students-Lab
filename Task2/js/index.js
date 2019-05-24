@@ -112,7 +112,6 @@ let Calculator = {
   sum : function(num1, num2)
   {
     let res = num1+num2;
-    console.log(res);
     return res;
   },
   sub : function(num1, num2)
