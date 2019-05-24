@@ -91,21 +91,75 @@ selection_button.onclick = function() {
 
 formatDate_button.onclick = function() { 
 
-  let date_in =  prompt('Date: ', '2015-03-25');
+  let date_in =  prompt('Date: ', '10-Aug-2018');
   date_out.value = formatDate(date_in);
 };
 
-function formatDate(date) {
-  console.log(date);
-  let date_out = new Date(date);
-  console.log(date_out);
-  return date_out;
-};
+  function formatDate(d) {
 
+    let monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
 
+    if(Number.isInteger(Number(d))) {
+
+      let date = new Date(d);     
+    
+      let day = date.getDate();
+      let monthIndex = date.getMonth();
+      let year = date.getFullYear();
+
+      return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+    else {
+      let date = new Date(d);
+      
+      let day = date.getDate();
+      let monthIndex = date.getMonth();
+      let year = date.getFullYear();
+
+      return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+  };
 
 //3. Text Formatter
+let textarea = document.getElementById("text-formatter");
+let maxlength = textarea.getAttribute("maxlength");
 
+function textFormater(str, strlen, maxlen) {
+  let result = '';
+  let f =0;
+  maxlength = maxlen;
+  for (let i=0; i<str.length; i++) {
+    
+    if(f<strlen) {
+      result += str[i];
+      f+=1;
+      console.log(result, f);
+      
+    }
+    else {
+      result+='\n'+str[i];
+      f=1;
+      console.log(result, f);
+    }
+  }
+  console.log(result);
+  return result;
+};
+
+formatText_button.onclick = function() { 
+  
+  let strlen=parseFloat(document.getElementById('strlen').value);
+  let maxlen=parseFloat(document.getElementById('maxlen').value);
+  let str=document.getElementById('str').value;
+
+  textarea.value = textFormater(str, strlen, maxlen);
+};
 
 //4. String calculator
 let Calculator = {
