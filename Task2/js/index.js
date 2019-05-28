@@ -1,344 +1,350 @@
 //1. Array Processing Tool
 
 let SubSum = {
-  getMaxSubSum_n2: function (arr) {
-    let maxSum = 0;   
+  getMaxSubSum_n2: function(arr) {
+    let maxSum = 0;
     for (let i = 0; i < arr.length; i++) {
       let sumFixedStart = 0;
       for (let j = i; j < arr.length; j++) {
         sumFixedStart += Number(arr[j]);
         maxSum = Math.max(maxSum, sumFixedStart);
       }
-    }    
+    }
     return maxSum;
-},
+  },
 
-getMaxSubSum_n : function(arr) {
-  let maxSum = 0,
-    partialSum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    partialSum += Number(arr[i]);
-    maxSum = Math.max(maxSum, partialSum);
-    if (partialSum < 0) partialSum = 0;
-  }
-  return maxSum;
-},
+  getMaxSubSum_n: function(arr) {
+    let maxSum = 0,
+      partialSum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      partialSum += Number(arr[i]);
+      maxSum = Math.max(maxSum, partialSum);
+      if (partialSum < 0) partialSum = 0;
+    }
+    return maxSum;
+  },
 
-getMinElement : function(arr) {
-  return Math.min.apply(null, arr);
-},
+  getMinElement: function(arr) {
+    return Math.min.apply(null, arr);
+  },
 
-getMaxElement : function(arr) {
-  return Math.max.apply(null, arr);
-},
+  getMaxElement: function(arr) {
+    return Math.max.apply(null, arr);
+  },
 
-getMidElement : function(arr) {
-  let sum = 0;
-  for(let i = 0; i < arr.length; i++) {
+  getMidElement: function(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
       sum += Number(arr[i]);
-  }
-  return sum / arr.length;
-},
+    }
+    return sum / arr.length;
+  },
 
-getMaxSelection : function(arr) {
-  let arr2 = [];
-  let len; 
-  arr2[0] = arr[0]; 
-  len = 1; 
-  for (let i = 1; i < arr.length; i++) { 
-    if (arr[i] < arr2[0]) 
-      arr2[0] = arr[i]; 
-  
-    else if (arr[i] > arr2[len - 1]) 
-      arr2[len++] = arr[i]; 
+  getMaxSelection: function(arr) {
+    let arr2 = [];
+    let len;
+    arr2[0] = arr[0];
+    len = 1;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < arr2[0]) arr2[0] = arr[i];
+      else if (arr[i] > arr2[len - 1]) arr2[len++] = arr[i];
+    }
+    return arr2;
   }
-  return arr2; 
-} 
 };
 
 //a. Sub Sum
-let t1o2_result = document.getElementById('t1o2_result');
-t1o2.onclick = function() { 
-  let arr = prompt('Array: ', '0, 8, 7');
-  t1o2_result.value = SubSum.getMaxSubSum_n2(arr.split(', '));
+let t1o2_result = document.getElementById("t1o2_result");
+t1o2.onclick = function() {
+  let arr = prompt("Array: ", "0, 8, 7");
+  t1o2_result.value = SubSum.getMaxSubSum_n2(arr.split(", "));
 };
 
-
-let t1o_result = document.getElementById('t1o_result');
-t1o.onclick = function() { 
-  let arr = prompt('Array: ', '0, 8, 7');
-  t1o_result.value = SubSum.getMaxSubSum_n(arr.split(', '));
+let t1o_result = document.getElementById("t1o_result");
+t1o.onclick = function() {
+  let arr = prompt("Array: ", "0, 8, 7");
+  t1o_result.value = SubSum.getMaxSubSum_n(arr.split(", "));
 };
-
 
 //b. Search
-search_button.onclick = function() { 
-  let arr = prompt('Array: ', '0, 8, 7, 3');
-  min_element.value = SubSum.getMinElement(arr.split(', '));
-  max_element.value = SubSum.getMaxElement(arr.split(', '));
-  mid_element.value = SubSum.getMidElement(arr.split(', '));
+search_button.onclick = function() {
+  let arr = prompt("Array: ", "0, 8, 7, 3");
+  min_element.value = SubSum.getMinElement(arr.split(", "));
+  max_element.value = SubSum.getMaxElement(arr.split(", "));
+  mid_element.value = SubSum.getMidElement(arr.split(", "));
 };
-
 
 //c. Selection Task
-selection_button.onclick = function() { 
-  let arr = prompt('Array: ', '0, 2, 3, 5, 1, 4, 5, 11');
-  selection.value = SubSum.getMaxSelection(arr.split(', '));
+selection_button.onclick = function() {
+  let arr = prompt("Array: ", "0, 2, 3, 5, 1, 4, 5, 11");
+  selection.value = SubSum.getMaxSelection(arr.split(", "));
 };
-
 
 //2. Date Display Formatter
 
-formatDate_button.onclick = function() { 
-
-  let date_in =  prompt('Date: ', '10-Aug-2018');
+formatDate_button.onclick = function() {
+  let date_in = prompt("Date: ", "10-Aug-2018");
   date_out.value = formatDate(date_in);
 };
 
-  function formatDate(d) {
+function formatDate(d) {
+  let monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
 
-    let monthNames = [
-      "January", "February", "March",
-      "April", "May", "June", "July",
-      "August", "September", "October",
-      "November", "December"
-    ];
+  if (Number.isInteger(Number(d))) {
+    let date = new Date(d);
 
-    if(Number.isInteger(Number(d))) {
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
 
-      let date = new Date(d);     
-    
-      let day = date.getDate();
-      let monthIndex = date.getMonth();
-      let year = date.getFullYear();
+    return day + " " + monthNames[monthIndex] + " " + year;
+  } else {
+    let date = new Date(d);
 
-      return day + ' ' + monthNames[monthIndex] + ' ' + year;
-    }
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
 
-    else {
-      let date = new Date(d);
-      
-      let day = date.getDate();
-      let monthIndex = date.getMonth();
-      let year = date.getFullYear();
-
-      return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    return day + " " + monthNames[monthIndex] + " " + year;
   }
-  };
+}
 
 //3. Text Formatter
 let textarea = document.getElementById("text-formatter");
 let maxlength = textarea.getAttribute("maxlength");
 
 function textFormater(str, strlen, maxlen) {
-  let result = '';
-  let f =0;
+  let result = "";
+  let f = 0;
   maxlength = maxlen;
-  for (let i=0; i<str.length; i++) {
-    
-    if(f<strlen) {
+  for (let i = 0; i < str.length; i++) {
+    if (f < strlen) {
       result += str[i];
-      f+=1;
+      f += 1;
       console.log(result, f);
-      
-    }
-    else {
-      result+='\n'+str[i];
-      f=1;
+    } else {
+      result += "\n" + str[i];
+      f = 1;
       console.log(result, f);
     }
   }
   console.log(result);
   return result;
-};
+}
 
-formatText_button.onclick = function() { 
-  
-  let strlen=parseFloat(document.getElementById('strlen').value);
-  let maxlen=parseFloat(document.getElementById('maxlen').value);
-  let str=document.getElementById('str').value;
+formatText_button.onclick = function() {
+  let strlen = parseFloat(document.getElementById("strlen").value);
+  let maxlen = parseFloat(document.getElementById("maxlen").value);
+  let str = document.getElementById("str").value;
 
   textarea.value = textFormater(str, strlen, maxlen);
 };
 
 //4. String calculator
 let Calculator = {
-  sum : function(num1, num2)
-  {
-    let res = num1+num2;
+  sum: function(num1, num2) {
+    let res = num1 + num2;
     return res;
   },
-  sub : function(num1, num2)
-  {
-    return num1-num2;
+  sub: function(num1, num2) {
+    return num1 - num2;
   },
-  mul : function(num1, num2)
-  {
-    return num1*num2;
+  mul: function(num1, num2) {
+    return num1 * num2;
   },
-  div : function(num1, num2)
-  {
-    return num1/num2;
+  div: function(num1, num2) {
+    return num1 / num2;
   },
-  percent : function(num1, num2)
-  {
-    return number2*100/number1;
+  percent: function(num1, num2) {
+    return (number2 * 100) / number1;
   }
 };
 
-function showresult(choise){
-  let number1=parseFloat(document.getElementById('number1').value);
-  let number2=parseFloat(document.getElementById('number2').value);
+function showresult(choise) {
+  let number1 = parseFloat(document.getElementById("number1").value);
+  let number2 = parseFloat(document.getElementById("number2").value);
   let result;
-  
-  switch(choise)
-    {
-    case '+': result = Calculator.sum(number1, number2); break;
-    case '-': result = Calculator.sub(number1, number2); break;
-    case '*': result = Calculator.mul(number1, number2); break;
-    case '/': result = Calculator.div(number1, number2); break;
-    case '%': result = Calculator.percent(number1, number2); break;
-    default: break;
-        
-    }
-  document.getElementById('calculator_result').value=result;
+
+  switch (choise) {
+    case "+":
+      result = Calculator.sum(number1, number2);
+      break;
+    case "-":
+      result = Calculator.sub(number1, number2);
+      break;
+    case "*":
+      result = Calculator.mul(number1, number2);
+      break;
+    case "/":
+      result = Calculator.div(number1, number2);
+      break;
+    case "%":
+      result = Calculator.percent(number1, number2);
+      break;
+    default:
+      break;
+  }
+  document.getElementById("calculator_result").value = result;
 }
 
 //5. Array Sorter
 
-arraySort_button.onclick = function() {  
-  let arr = prompt('Array: ', '0, 8, 7, 9, 1'); 
-  arrHighestSort_result.value = ArraySort.arrHighestSort(arr.split(', '));
-  arrLowestSort_result.value = ArraySort.arrLowestSort(arr.split(', '));
-  arrReverseSort_result.value = ArraySort.arrReverseSort(arr.split(', '));
-  arrEvenSort_result.value = ArraySort.arrEvenSort(arr.split(', '));
-  arrОddSort_result.value = ArraySort.arrОddSort(arr.split(', '));
-  getMinElement_result.value = ArraySort.getMinElement(arr.split(', '));
-  getMaxElement_result.value = ArraySort.getMaxElement(arr.split(', '));
+arraySort_button.onclick = function() {
+  let arr = prompt("Array: ", "0, 8, 7, 9, 1");
+  arrHighestSort_result.value = ArraySort.arrHighestSort(arr.split(", "));
+  arrLowestSort_result.value = ArraySort.arrLowestSort(arr.split(", "));
+  arrReverseSort_result.value = ArraySort.arrReverseSort(arr.split(", "));
+  arrEvenSort_result.value = ArraySort.arrEvenSort(arr.split(", "));
+  arrОddSort_result.value = ArraySort.arrОddSort(arr.split(", "));
+  getMinElement_result.value = ArraySort.getMinElement(arr.split(", "));
+  getMaxElement_result.value = ArraySort.getMaxElement(arr.split(", "));
 };
 
 let ArraySort = {
-
-  arrHighestSort : function(arr) {
-    result = arr.sort(function(a, b){return a - b});
-  return result;
+  arrHighestSort: function(arr) {
+    result = arr.sort(function(a, b) {
+      return a - b;
+    });
+    return result;
   },
 
-  arrLowestSort : function(arr) {
-    result = arr.sort(function(a, b){return b - a});
-  return result;
+  arrLowestSort: function(arr) {
+    result = arr.sort(function(a, b) {
+      return b - a;
+    });
+    return result;
   },
 
-  arrReverseSort : function(arr) {
+  arrReverseSort: function(arr) {
     result = arr.reverse();
-  return result;
+    return result;
   },
 
-  arrEvenSort : function(arr) {
+  arrEvenSort: function(arr) {
     result = [];
     for (let i = 0; i <= arr.length; i++) {
       if (arr[i] % 2 == 0) {
         result.unshift(arr[i]);
       }
     }
-  return result;
+    return result;
   },
 
-  arrОddSort : function(arr) {
+  arrОddSort: function(arr) {
     result = [];
-    for (let i = 0; i <= arr.length-1; i++) {
+    for (let i = 0; i <= arr.length - 1; i++) {
       if (arr[i] % 2 != 0) {
         console.log(arr[i]);
         result.unshift(arr[i]);
       }
     }
-  return result;
+    return result;
   },
-  
-  getMinElement : function(arr) {
+
+  getMinElement: function(arr) {
     return Math.min.apply(null, arr);
   },
-  
-  getMaxElement : function(arr) {
+
+  getMaxElement: function(arr) {
     return Math.max.apply(null, arr);
   }
-}
-
+};
 
 //6. Binary Converter
 
-var ConvertBase = function (num) {
+var ConvertBase = function(num) {
   return {
-      from : function (baseFrom) {
-          return {
-              to : function (baseTo) {
-                  return parseInt(num, baseFrom).toString(baseTo);
-              }
-          };
-      }
+    from: function(baseFrom) {
+      return {
+        to: function(baseTo) {
+          return parseInt(num, baseFrom).toString(baseTo);
+        }
+      };
+    }
   };
 };
-  
+
 // binary to decimal
-ConvertBase.bin2dec = function (num) {
-  return ConvertBase(num).from(2).to(10);
+ConvertBase.bin2dec = function(num) {
+  return ConvertBase(num)
+    .from(2)
+    .to(10);
 };
 
 // binary to hexadecimal
-ConvertBase.bin2hex = function (num) {
-  return ConvertBase(num).from(2).to(16);
+ConvertBase.bin2hex = function(num) {
+  return ConvertBase(num)
+    .from(2)
+    .to(16);
 };
 
 // decimal to binary
-ConvertBase.dec2bin = function (num) {
-  return ConvertBase(num).from(10).to(2);
+ConvertBase.dec2bin = function(num) {
+  return ConvertBase(num)
+    .from(10)
+    .to(2);
 };
 
 // decimal to hexadecimal
-ConvertBase.dec2hex = function (num) {
-  return ConvertBase(num).from(10).to(16);
+ConvertBase.dec2hex = function(num) {
+  return ConvertBase(num)
+    .from(10)
+    .to(16);
 };
 
 // hexadecimal to binary
-ConvertBase.hex2bin = function (num) {
-  return ConvertBase(num).from(16).to(2);
+ConvertBase.hex2bin = function(num) {
+  return ConvertBase(num)
+    .from(16)
+    .to(2);
 };
 
 // hexadecimal to decimal
-ConvertBase.hex2dec = function (num) {
-  return ConvertBase(num).from(16).to(10);
-};
-      
-
-bin2dec_button.onclick = function() {   
-  let numConvert=document.getElementById('num_converter').value;
-  result_converter.value= ConvertBase.bin2dec(numConvert);
+ConvertBase.hex2dec = function(num) {
+  return ConvertBase(num)
+    .from(16)
+    .to(10);
 };
 
-bin2hex_button.onclick = function() {   
-  let numConvert=document.getElementById('num_converter').value;
-  result_converter.value= ConvertBase.bin2hex(numConvert);
+bin2dec_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.bin2dec(numConvert);
 };
 
-dec2bin_button.onclick = function() { 
-  let numConvert=document.getElementById('num_converter').value;
-  result_converter.value= ConvertBase.dec2bin(numConvert);
+bin2hex_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.bin2hex(numConvert);
 };
 
-dec2hex_button.onclick = function() {   
-  let numConvert=document.getElementById('num_converter').value;
-  result_converter.value= ConvertBase.dec2hex(numConvert);
+dec2bin_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.dec2bin(numConvert);
 };
 
-hex2bin_button.onclick = function() { 
-  let numConvert=document.getElementById('num_converter').value;  
-  result_converter.value= ConvertBase.hex2bin(numConvert);
+dec2hex_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.dec2hex(numConvert);
 };
 
-hex2dec_button.onclick = function() {  
-  let numConvert=document.getElementById('num_converter').value; 
-  result_converter.value= ConvertBase.hex2dec(numConvert);
+hex2bin_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.hex2bin(numConvert);
 };
-  
-  
- 
+
+hex2dec_button.onclick = function() {
+  let numConvert = document.getElementById("num_converter").value;
+  result_converter.value = ConvertBase.hex2dec(numConvert);
+};

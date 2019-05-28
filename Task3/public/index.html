@@ -12,20 +12,19 @@
   <body>
     <h1>Weather</h1>
 
-    <div class="task">
-      <input type="text" id="city" class="text-in" />
+    <form action="/api/weather" method="GET">
+      <input type="text" name="city" class="text-in" />
       <input
+        onclick="weather()"
         value="Search"
-        id="weather-search-button"
-        type="button"
+        id="search"
+        type="submit"
         class="button"
       />
-    </div>
+    </form>
 
     <div class="task">
       <div id="current-weather"></div>
     </div>
-
-    <script src="../js/index.js"></script>
   </body>
 </html>
