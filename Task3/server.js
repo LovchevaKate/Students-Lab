@@ -1,5 +1,6 @@
 import express from "express";
 import getWeather from "./index";
+import path from "path";
 
 const appid = "c93e39a59f829c5617a61b1c8819e574";
 const app = express();
@@ -10,7 +11,7 @@ app.get("/api/weather", (req, res) => {
   let city = req.query.city;
   let weather = {};
   let tempK;
-
+  console.log(city);
   getWeather(city, appid)
     .then(res => {
       tempK = res.main.temp;
@@ -19,7 +20,10 @@ app.get("/api/weather", (req, res) => {
     })
     .then(() => {
       weather.temp = fromKtoC(tempK);
-    });
+      console.log(weather);
+      res.send(weather);
+    })
+    .catch(e => console.log(e));
 });
 
 function fromKtoC(k) {
