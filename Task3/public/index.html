@@ -2,20 +2,26 @@
 <html>
   <head>
     <title>Task3</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   </head>
 
   <body>
     <h1>Weather</h1>
 
-    <form action="/api/weather" method="GET">
-      <input type="text" name="city" class="text-in" />
+    <form method="GET">
+      <input type="text" name="city" id="city" class="text-in" />
       <input value="Search" id="search" type="submit" class="button" />
     </form>
 
-    <div class="task">
-      <div id="current-weather"></div>
+    <div class="current-weather">
+      <div id="description"></div>
+      <div>Air temperature: <span id="temp"></span></div>
+      <div>Atmospheric pressure: <span id="pressure"></span></div>
     </div>
+    <input value="Refresh" id="refresh" type="submit" class="button" />
+    <p id="time"></p>
 
-    <script src="./index.js"></script>
+    <script src="../index.js"></script>
   </body>
 </html>
