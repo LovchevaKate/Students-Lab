@@ -5,10 +5,28 @@ const initialState = [
     cards: [
       {
         id: 0,
-        text: "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest"
+        text: "testtesttesttesttesttesttest"
       },
       {
         id: 1,
+        text: "testtesttesttesttesttesttesttest"
+      }
+    ]
+  },
+  {
+    title: "Second",
+    id: 0,
+    cards: [
+      {
+        id: 0,
+        text: "testtesttesttesttesttesttest"
+      },
+      {
+        id: 1,
+        text: "testtesttesttesttesttesttesttest"
+      },
+      {
+        id: 2,
         text: "testtesttesttesttesttesttesttest"
       }
     ]
