@@ -16,7 +16,7 @@ const List = ({ title, cards, listID }) => {
 
 const styles = {
   container: {
-    backgroundColor: "#dfe3e6",
+    backgroundColor: "#7AB1FF",
     borderRadius: 3,
     width: 300,
     padding: 8,

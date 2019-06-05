@@ -8,7 +8,6 @@ class App extends Component {
     const { lists } = this.props;
     return (
       <div className="App">
-        <h1>Hello</h1>
         <div style={styles.listsConteiner}>
           {lists.map(list => (
             <List

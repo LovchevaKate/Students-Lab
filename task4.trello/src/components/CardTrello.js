@@ -1,12 +1,11 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-
 import Typography from "@material-ui/core/Typography";
 
 const CardTrello = ({ text }) => {
   return (
-    <Card style={styles.cadrConteiner}>
+    <Card style={styles.cardConteiner}>
       <CardContent>
         <Typography gutterBottom>{text}</Typography>
       </CardContent>
@@ -15,7 +14,7 @@ const CardTrello = ({ text }) => {
 };
 
 const styles = {
-  cadrConteiner: {
+  cardConteiner: {
     marginBottom: 8
   }
 };

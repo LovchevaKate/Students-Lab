@@ -1,5 +1,4 @@
 import React from "react";
-import Icon from "@material-ui/core/icon";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import TextArea from "react-textarea-autosize";
@@ -58,25 +57,12 @@ class ActionButton extends React.Component {
 
   renderAddButton = () => {
     const { list } = this.props;
+    const buttonText = list ? "Add list" : "Add card";
 
-    const buttonText = list ? "Add another list" : "Add another card";
-
-    const buttonTextOpacity = list ? 1 : 0.5;
-    const buttonTextColor = list ? "white" : "inherit";
-    const buttonTextBackground = list ? "rgba(0,0,0,.15)" : "inherit";
     return (
-      <div
-        onClick={this.openForm}
-        style={{
-          ...styles.openFormButtonGroup,
-          opacity: buttonTextOpacity,
-          color: buttonTextColor,
-          backgroundColor: buttonTextBackground
-        }}
-      >
-        <Icon>add</Icon>
-        <p>{buttonText}</p>
-      </div>
+      <Button onClick={this.openForm} style={styles.openFormButtonGroup}>
+        {buttonText}
+      </Button>
     );
   };
 
@@ -91,49 +77,23 @@ class ActionButton extends React.Component {
 
     return (
       <div>
-        <Card
-          style={{
-            overflow: "visible",
-            minHeight: 80,
-            minWidth: 270,
-            padding: "6px 8px 2px"
-          }}
-        >
+        <Card style={styles.card}>
           <TextArea
             placeholder={placeholder}
             autoFocus
             onBlur={this.closeForm}
             value={this.state.text}
             onChange={this.handleInputChange}
-            style={{
-              resize: "none",
-              width: "100%",
-              overflow: "hidden",
-              outline: "none",
-              border: "none"
-            }}
+            style={styles.textArea}
           />
         </Card>
-        <div style={styles.formButtonGroup}>
-          <Button
-            onMouseDown={list ? this.handeleAddList : this.handleAddCard}
-            variant="contained"
-            style={{
-              color: "white",
-              backgroundColor: "#5aac44"
-            }}
-          >
-            {buttonTitle}
-          </Button>
-          <Icon
-            style={{
-              marginLeft: 8,
-              cursor: "pointer"
-            }}
-          >
-            close
-          </Icon>
-        </div>
+        <Button
+          onMouseDown={list ? this.handeleAddList : this.handleAddCard}
+          variant="contained"
+          style={styles.formButtonGroup}
+        >
+          {buttonTitle}
+        </Button>
       </div>
     );
   };
@@ -150,13 +110,29 @@ const styles = {
     cursor: "pointer",
     borderRadius: 3,
     height: 35,
-    width: 270,
-    paddingLeft: 10
+    width: 300,
+    paddingLeft: 10,
+    color: "white",
+    backgroundColor: "#48CFAF"
   },
   formButtonGroup: {
     marginTop: 8,
     display: "flex",
-    alignItems: "center"
+    color: "#414042",
+    backgroundColor: "#76FEC5"
+  },
+  card: {
+    overflow: "visible",
+    minHeight: 80,
+    minWidth: 270,
+    padding: "6px 8px 2px"
+  },
+  textArea: {
+    resize: "none",
+    width: "100%",
+    overflow: "hidden",
+    outline: "none",
+    border: "none"
   }
 };
 
