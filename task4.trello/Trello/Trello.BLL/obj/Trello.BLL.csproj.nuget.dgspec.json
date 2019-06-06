@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj": {}
+    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj": {}
   },
   "projects": {
-    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj": {
+    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
-        "projectName": "Trello",
-        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
+        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
+        "projectName": "Trello.BLL",
+        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
         "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
-        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\obj\\",
+        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,18 +41,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.1, )",
-              "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.2, )"
-            },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true

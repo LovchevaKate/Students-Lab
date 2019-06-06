@@ -1,0 +1,12 @@
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csprojAssemblyReference.cache
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csproj.CoreCompileInputs.cache
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.AssemblyInfoInputs.cache
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.AssemblyInfo.cs
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.deps.json
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.pdb
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.xml
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csproj.CopyComplete
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.pdb
