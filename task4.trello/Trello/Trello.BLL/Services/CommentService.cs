@@ -17,7 +17,6 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        [Obsolete]
         public void CreateComment(CommentBLL commentBLL)
         {
             if (commentBLL == null)
@@ -41,7 +40,6 @@ namespace Trello.BLL.Services
             Database.Save();
         }
 
-        [Obsolete]
         public CommentBLL GetComment(int id)
         {
             if (id == 0)
@@ -58,7 +56,6 @@ namespace Trello.BLL.Services
             return commentBLL;
         }
 
-        [Obsolete]
         public IEnumerable<CommentBLL> GetComments()
         {
             var comments = Database.Comments.GetAll();
@@ -80,7 +77,6 @@ namespace Trello.BLL.Services
             return commentsBLL;
         }
 
-        [Obsolete]
         public void UpdateComment(CommentBLL commentBLL)
         {
             if (commentBLL == null)

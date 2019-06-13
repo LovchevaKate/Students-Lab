@@ -17,7 +17,6 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        [Obsolete]
         public void CreateUser(UserBLL userBLL)
         {
             if (userBLL == null)
@@ -41,7 +40,6 @@ namespace Trello.BLL.Services
             Database.Save();
         }
 
-        [Obsolete]
         public UserBLL GetUser(int id)
         {
             if (id == 0)
@@ -58,7 +56,6 @@ namespace Trello.BLL.Services
             return userBLL;
         }
 
-        [Obsolete]
         public IEnumerable<UserBLL> GetUsers()
         {
             var users = Database.Users.GetAll();
@@ -80,7 +77,6 @@ namespace Trello.BLL.Services
             return usersBLL;
         }
 
-        [Obsolete]
         public void UpdateUser(UserBLL userBLL)
         {
             if (userBLL == null)

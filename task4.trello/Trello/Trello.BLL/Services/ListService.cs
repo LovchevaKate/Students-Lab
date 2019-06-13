@@ -17,7 +17,6 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        [Obsolete]
         public void CreateList(ListBLL listBLL)
         {
             if (listBLL == null)
@@ -41,7 +40,6 @@ namespace Trello.BLL.Services
             Database.Save();
         }
 
-        [Obsolete]
         public ListBLL GetList(int id)
         {
             if (id == 0)
@@ -58,7 +56,6 @@ namespace Trello.BLL.Services
             return listBLL;
         }
 
-        [Obsolete]
         public IEnumerable<ListBLL> GetLists()
         {
             var lists = Database.Lists.GetAll();
@@ -80,7 +77,6 @@ namespace Trello.BLL.Services
             return listsBLL;
         }
 
-        [Obsolete]
         public void UpdateList(ListBLL listBLL)
         {
             if (listBLL == null)

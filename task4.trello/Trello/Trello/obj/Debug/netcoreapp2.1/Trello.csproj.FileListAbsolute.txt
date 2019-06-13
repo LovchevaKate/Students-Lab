@@ -2,6 +2,13 @@ D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.runtimeconfig.json
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.runtimeconfig.dev.json
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.pdb
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.Views.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.Views.pdb
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.BLL.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.DAL.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.BLL.pdb
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\bin\Debug\netcoreapp2.1\Trello.DAL.pdb
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.csprojAssemblyReference.cache
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.csproj.CoreCompileInputs.cache
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.RazorAssemblyInfo.cache
@@ -23,3 +30,7 @@ D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Razor\V
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.RazorTargetAssemblyInfo.cache
 D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.RazorTargetAssemblyInfo.cs
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.Views.pdb
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.csproj.CopyComplete
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.dll
+D:\Tasks\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.pdb

@@ -7,8 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Trello.BLL.Services;
+using Trello.DAL.Context;
 
 namespace Trello
 {
@@ -18,6 +21,8 @@ namespace Trello
         {
             Configuration = configuration;
         }
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
 
@@ -31,6 +36,31 @@ namespace Trello
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            string con = "Server=(localdb)\\mssqllocaldb;Database=mydb;Trusted_Connection=True;MultipleActiveResultSets=true";
+            services.AddDbContext<ContextDB>(options => options.UseSqlServer(con, b=>b.MigrationsAssembly("Trello")));
+
+            services.AddTransient<UserService>();
+            services.AddTransient<ListService>();
+            services.AddTransient<CardService>();
+            //services.AddScoped<IUserService, UserService>();
+            services.AddTransient<CommentService>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+
+                });
+            });
+
+            services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

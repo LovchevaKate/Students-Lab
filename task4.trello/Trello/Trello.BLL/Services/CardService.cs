@@ -8,7 +8,7 @@ using Trello.DAL.Repositories;
 
 namespace Trello.BLL.Services
 {
-    class CardService : ICardService
+    public class CardService : ICardService
     {
         UnitOfWork Database { get; set; }
 
@@ -17,7 +17,6 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        [Obsolete]
         public void CreateCard(CardBLL cardBLL)
         {
             if (cardBLL == null)
@@ -41,7 +40,6 @@ namespace Trello.BLL.Services
             Database.Save();
         }
 
-        [Obsolete]
         public CardBLL GetCard(int id)
         {
             if (id == 0)
@@ -58,7 +56,6 @@ namespace Trello.BLL.Services
             return cardBLL;
         }
 
-        [Obsolete]
         public IEnumerable<CardBLL> GetCards()
         {
             var cards = Database.Cards.GetAll();
@@ -80,7 +77,6 @@ namespace Trello.BLL.Services
             return cardsBLL;
         }
 
-        [Obsolete]
         public void UpdateCard(CardBLL cardBLL)
         {
             if (cardBLL == null)

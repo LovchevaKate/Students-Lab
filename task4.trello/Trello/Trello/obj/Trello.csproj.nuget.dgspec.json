@@ -4,14 +4,74 @@
     "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj": {}
   },
   "projects": {
-    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj": {
+    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
-        "projectName": "Trello",
-        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
+        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
+        "projectName": "Trello.BLL",
+        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
         "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
-        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\obj\\",
+        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Katsiaryna.Louchava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
+                "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
+        "projectName": "Trello.DAL",
+        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
+        "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
+        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -45,6 +105,66 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
+        "projectName": "Trello",
+        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\Trello.csproj",
+        "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
+        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Katsiaryna.Louchava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj": {
+                "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -60,6 +180,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             }
           },
           "imports": [
