@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Trello.BLL.Services;
 using Trello.DAL.Context;
+using Trello.DAL.Repositories;
 
 namespace Trello
 {
@@ -44,6 +45,7 @@ namespace Trello
             services.AddTransient<CardService>();
             //services.AddScoped<IUserService, UserService>();
             services.AddTransient<CommentService>();
+            services.AddTransient<UnitOfWork>();
 
             services.AddCors(options =>
             {

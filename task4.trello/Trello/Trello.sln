@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trello", "Trello\Trello.csproj", "{A4BE81E0-263C-4955-A3B6-2B7B106CE879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trello.BLL", "Trello.BLL\Trello.BLL.csproj", "{2BE24D30-B22C-47F4-B78C-A990B9AF129E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trello.BLL", "Trello.BLL\Trello.BLL.csproj", "{2BE24D30-B22C-47F4-B78C-A990B9AF129E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trello.DAL", "Trello.DAL\Trello.DAL.csproj", "{BE76A294-70E6-408C-BBA6-0B71C648A04B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trello.DAL", "Trello.DAL\Trello.DAL.csproj", "{BE76A294-70E6-408C-BBA6-0B71C648A04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trello.WEB", "Trello.WEB\Trello.WEB.csproj", "{4813B2AD-4C67-45CE-A459-E7E573641CC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BE76A294-70E6-408C-BBA6-0B71C648A04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE76A294-70E6-408C-BBA6-0B71C648A04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE76A294-70E6-408C-BBA6-0B71C648A04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4813B2AD-4C67-45CE-A459-E7E573641CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4813B2AD-4C67-45CE-A459-E7E573641CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4813B2AD-4C67-45CE-A459-E7E573641CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4813B2AD-4C67-45CE-A459-E7E573641CC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
