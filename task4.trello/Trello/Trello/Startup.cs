@@ -23,7 +23,7 @@ namespace Trello
             Configuration = configuration;
         }
 
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public IConfiguration Configuration { get; }
 
@@ -47,22 +47,22 @@ namespace Trello
             services.AddTransient<CommentService>();
             services.AddTransient<UnitOfWork>();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins("http://localhost:3000")
-                                        .AllowAnyHeader()
-                                        .AllowAnyMethod();
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(MyAllowSpecificOrigins,
+            //    builder =>
+            //    {
+            //        builder.WithOrigins("http://localhost:3000")
+            //                            .AllowAnyHeader()
+            //                            .AllowAnyMethod();
 
-                });
-            });
+            //    });
+            //});
 
-            services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
-            {
-                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            }));
+            //services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
+            //{
+            //    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            //}));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -83,6 +83,7 @@ namespace Trello
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseMvc(routes =>
             {
