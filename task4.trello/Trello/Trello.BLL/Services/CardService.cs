@@ -56,7 +56,7 @@ namespace Trello.BLL.Services
             return cardBLL;
         }
 
-        public IEnumerable<CardBLL> GetCards()
+        public List<CardBLL> GetCards()
         {
             var cards = Database.Cards.GetAll();
             List<CardBLL> cardsBLL = new List<CardBLL>();

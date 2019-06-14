@@ -11,28 +11,28 @@ namespace Trello.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserAPIController : ControllerBase
+    public class ListAPIController : ControllerBase
     {
-        readonly UserService userService;
-        public UserAPIController(UserService serv)
+        readonly ListService listService;
+        public ListAPIController(ListService serv)
         {
-            userService = serv;
+            listService = serv;
         }
 
-        // GET: api/UsersAPI
+        // GET: api/ListAPI
         [HttpGet]
-        public IActionResult GetUsers()
+        public IActionResult GetLists()
         {
             try
             {
-                List<UserBLL> user = userService.GetUsers();
+                List<ListBLL> lists = listService.GetLists();
 
-                if (user == null)
+                if (lists == null)
                 {
                     throw new Exception("users don't found");
                 }
 
-                return Ok(user);
+                return Ok(lists);
             }
             catch (Exception ex)
             {
@@ -40,21 +40,21 @@ namespace Trello.Controllers
             }
         }
 
-        //// GET: api/UsersAPI/5
+        // GET: api/ListAPI/5
         //[Authorize(Roles = "admin")]
         [HttpGet("{id}")]
-        public IActionResult GetUser([FromRoute] int id)
+        public IActionResult GetList([FromRoute] int id)
         {
             try
             {
-                var user = userService.GetUser(id);
+                var list = listService.GetList(id);
 
-                if (user == null)
+                if (list == null)
                 {
-                    throw new Exception("user doesn't found");
+                    throw new Exception("list doesn't found");
                 }
 
-                return Ok(user);
+                return Ok(list);
             }
             catch (Exception ex)
             {
@@ -62,24 +62,24 @@ namespace Trello.Controllers
             }
         }
 
-        // PUT: api/UsersAPI
+        // PUT: api/ListAPI
         //[Authorize(Roles = "admin")]
         [HttpPut]
-        public IActionResult PutUser(UserBLL user)
+        public IActionResult PutList([FromBody]ListBLL list)
         {
             try
             {
-                if (user == null)
+                if (list == null)
                 {
-                    throw new Exception("user==null");
+                    throw new Exception("list==null");
                 }
 
-                if (userService.GetUser(user.Id) == null)
+                if (listService.GetList(list.Id) == null)
                 {
-                    throw new Exception("user doesn't found");
+                    throw new Exception("list doesn't found");
                 }
 
-                userService.UpdateUser(user);
+                listService.UpdateList(list);
 
                 return Ok();
             }
@@ -89,23 +89,15 @@ namespace Trello.Controllers
             }
         }
 
-        // POST: api/UsersAPI
+        // POST: api/ListAPI
         //[Authorize(Roles = "admin")]
         [HttpPost]
-        public IActionResult PostUser([FromBody]UserBLL user)
+        public IActionResult PostList([FromBody]ListBLL list)
         {
             try
             {
-                if (user.Login == null || user.Password == null)
-                {
-                    throw new Exception("Error. Password == null or Login == null");
-                }
-
-                else
-                {
-                    userService.CreateUser(user);
-                }
-
+                listService.CreateList(list);
+                
                 return Ok();
             }
             catch (Exception ex)
@@ -114,20 +106,20 @@ namespace Trello.Controllers
             }
         }
 
-        // DELETE: api/UsersAPI/5
+        // DELETE: api/ListAPI/5
         //[Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser([FromRoute] int id)
+        public IActionResult DeleteList([FromRoute] int id)
         {
             try
             {
-                if (userService.GetUser(id) == null)
+                if (listService.GetList(id) == null)
                 {
-                    throw new Exception("Error. user doesn't found");
+                    throw new Exception("Error. list doesn't found");
                 }
                 else
                 {
-                    userService.DeleteUser(id);
+                    listService.DeleteList(id);
 
                     return Ok();
                 }

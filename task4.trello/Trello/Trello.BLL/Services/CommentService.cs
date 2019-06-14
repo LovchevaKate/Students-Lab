@@ -56,7 +56,7 @@ namespace Trello.BLL.Services
             return commentBLL;
         }
 
-        public IEnumerable<CommentBLL> GetComments()
+        public List<CommentBLL> GetComments()
         {
             var comments = Database.Comments.GetAll();
             List<CommentBLL> commentsBLL = new List<CommentBLL>();

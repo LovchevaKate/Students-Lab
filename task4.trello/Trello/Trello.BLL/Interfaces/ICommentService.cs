@@ -7,7 +7,7 @@ namespace Trello.BLL.Interfaces
     {
         void CreateComment(CommentBLL comment);
         CommentBLL GetComment(int id);
-        IEnumerable<CommentBLL> GetComments();
+        List<CommentBLL> GetComments();
         void UpdateComment(CommentBLL comment);
         void DeleteComment(int id);
     }

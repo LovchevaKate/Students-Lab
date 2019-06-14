@@ -56,7 +56,7 @@ namespace Trello.BLL.Services
             return userBLL;
         }
 
-        public IEnumerable<UserBLL> GetUsers()
+        public List<UserBLL> GetUsers()
         {
             var users = Database.Users.GetAll();
             List<UserBLL> usersBLL = new List<UserBLL>();

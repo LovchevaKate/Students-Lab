@@ -9,7 +9,7 @@ namespace Trello.BLL.Interfaces
     {
         void CreateUser(UserBLL user);
         UserBLL GetUser(int id);
-        IEnumerable<UserBLL> GetUsers();
+        List<UserBLL> GetUsers();
         void UpdateUser(UserBLL user);
         void DeleteUser(int id);
     }
