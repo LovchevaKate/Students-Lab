@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
 
@@ -97,7 +94,7 @@ namespace Trello.Controllers
             try
             {
                 listService.CreateList(list);
-                
+
                 return Ok();
             }
             catch (Exception ex)

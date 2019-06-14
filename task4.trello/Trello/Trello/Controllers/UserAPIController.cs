@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
 
@@ -19,7 +16,7 @@ namespace Trello.Controllers
             userService = serv;
         }
 
-        // GET: api/UsersAPI
+        // GET: api/UserAPI
         [HttpGet]
         public IActionResult GetUsers()
         {
@@ -40,7 +37,7 @@ namespace Trello.Controllers
             }
         }
 
-        //// GET: api/UsersAPI/5
+        // GET: api/UserAPI/5
         //[Authorize(Roles = "admin")]
         [HttpGet("{id}")]
         public IActionResult GetUser([FromRoute] int id)
@@ -62,10 +59,10 @@ namespace Trello.Controllers
             }
         }
 
-        // PUT: api/UsersAPI
+        // PUT: api/UserAPI
         //[Authorize(Roles = "admin")]
         [HttpPut]
-        public IActionResult PutUser(UserBLL user)
+        public IActionResult PutUser([FromBody]UserBLL user)
         {
             try
             {
@@ -89,7 +86,7 @@ namespace Trello.Controllers
             }
         }
 
-        // POST: api/UsersAPI
+        // POST: api/UserAPI
         //[Authorize(Roles = "admin")]
         [HttpPost]
         public IActionResult PostUser([FromBody]UserBLL user)
@@ -114,7 +111,7 @@ namespace Trello.Controllers
             }
         }
 
-        // DELETE: api/UsersAPI/5
+        // DELETE: api/UserAPI/5
         //[Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public IActionResult DeleteUser([FromRoute] int id)
