@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
 
 class NavBar extends Component {
   state = {
@@ -13,26 +16,34 @@ class NavBar extends Component {
   };
 
   render() {
-    return (
-      <header>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Trello</NavbarBrand>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/login">Login</NavLink>
-            </NavItem>
+    const classes = makeStyles(theme => ({
+      root: {
+        flexGrow: 1
+      },
+      menuButton: {
+        marginRight: theme.spacing(2)
+      },
+      title: {
+        flexGrow: 1
+      }
+    }));
 
-            <NavItem>
-              <NavLink href="/" onClick={this.logOffClick}>
-                Log Off
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
-      </header>
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Button color="inherit" href="/" className={classes.title}>
+              Home
+            </Button>
+            <Button color="inherit" href="/signin" className={classes.title}>
+              Sign In
+            </Button>
+            <Button color="inherit" href="/signup" className={classes.title}>
+              Sign Up
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
     );
   }
 }

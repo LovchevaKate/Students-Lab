@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import Login from "./components/Signin";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
         <div>
           <NavBar />
           <Route name="home" exact path="/" component={Home} />
-          <Route name="login" exact path="/login" component={Login} />
+          <Route name="signin" exact path="/signin" component={SignIn} />
+          <Route name="signup" exact path="/signup" component={SignUp} />
         </div>
       </Router>
     );

@@ -24,8 +24,14 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. user == null");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<UserBLL, User>());
-            User user = Mapper.Map<UserBLL, User>(userBLL);
+            //Mapper.Initialize(cfg => cfg.CreateMap<UserBLL, User>());
+            //User user = Mapper.Map<UserBLL, User>(userBLL);
+
+            User user = new User
+            {
+                Password = userBLL.Password,
+                Login = userBLL.Login
+            };
 
             Database.Users.Create(user);
             Database.Save();
