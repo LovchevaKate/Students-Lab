@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class Home extends Component {
+class Home extends Component {
   state = { data: {}, isFetching: true, error: null };
 
   componentDidMount() {
@@ -27,3 +27,4 @@ export class Home extends Component {
     );
   }
 }
+export default Home;
