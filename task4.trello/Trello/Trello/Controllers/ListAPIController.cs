@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Trello.BLL.Models;
@@ -17,6 +18,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/ListAPI
+        [Authorize]
         [HttpGet]
         public IActionResult GetLists()
         {

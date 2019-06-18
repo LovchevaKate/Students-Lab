@@ -13,6 +13,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Trello.BLL.Services;
 using Trello.DAL.Context;
 using Trello.DAL.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Trello
 {
@@ -37,7 +40,7 @@ namespace Trello
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            string con = "Server=(localdb)\\mssqllocaldb;Database=mydb;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string con = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ContextDB>(options => options.UseSqlServer(con, b=>b.MigrationsAssembly("Trello")));
 
             services.AddTransient<UserService>();
@@ -52,6 +55,22 @@ namespace Trello
             //}));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = "ValidIssuer",
+                    ValidAudience = "ValidateAudience",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IssuerSigningSecretKey")),
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +91,7 @@ namespace Trello
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

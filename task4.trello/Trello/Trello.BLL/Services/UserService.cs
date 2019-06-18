@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using Trello.BLL.Interfaces;
 using Trello.BLL.Models;
 using Trello.DAL.Entities;
@@ -24,12 +26,15 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. user == null");
             }
 
+            var sha256 = new SHA256Managed();
+            var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(userBLL.Password)));
+
             //Mapper.Initialize(cfg => cfg.CreateMap<UserBLL, User>());
             //User user = Mapper.Map<UserBLL, User>(userBLL);
 
             User user = new User
             {
-                Password = userBLL.Password,
+                Password = passwordHash,
                 Login = userBLL.Login
             };
 
@@ -66,6 +71,9 @@ namespace Trello.BLL.Services
         {
             var users = Database.Users.GetAll();
             List<UserBLL> usersBLL = new List<UserBLL>();
+            
+            
+            //Mapper.Initialize(cfg => cfg.CreateMap<User, UserBLL>());
 
             if (users == null)
             {
@@ -74,8 +82,12 @@ namespace Trello.BLL.Services
 
             foreach (var u in users)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<User, UserBLL>());
-                UserBLL userBLL = Mapper.Map<User, UserBLL>(u);
+                UserBLL userBLL = new UserBLL()
+                {
+                    Id = u.Id,
+                    Login = u.Login,
+                    Password = u.Password
+                };
 
                 usersBLL.Add(userBLL);
             }
