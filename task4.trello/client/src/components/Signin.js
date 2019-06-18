@@ -59,8 +59,11 @@ class SignIn extends Component {
         })
         .then(users => {
           console.log(users);
-
-          alert("Hello");
+          localStorage.setItem("loggedIn", "loggedIn");
+          localStorage.setItem("login", users.login);
+          localStorage.setItem("token", users.token);
+          localStorage.setItem("userId", users.id);
+          this.props.history.push("/board");
         })
         .catch(e => {
           console.log(e);

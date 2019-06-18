@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
+using Trello.Models;
 
 namespace Trello.Controllers
 {
@@ -19,6 +20,8 @@ namespace Trello.Controllers
     public class IdentityController : ControllerBase
     {
         readonly UserService userService;
+        UserHelper userHelper = new UserHelper();
+
         public IdentityController(UserService serv)
         {
             userService = serv;
@@ -43,8 +46,9 @@ namespace Trello.Controllers
                     expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
                     signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+            userHelper.Token = encodedJwt;
 
-            return Ok(encodedJwt);
+            return Ok(userHelper);
         }
         private IReadOnlyCollection<Claim> GetIdentity(string login, string password)
         {
@@ -59,6 +63,8 @@ namespace Trello.Controllers
 
                     if (passwordHash == u.Password)
                     {
+                        userHelper.Id = u.Id;
+                        userHelper.Login = u.Login;
                         claims = new List<Claim>
                         {
                             new Claim(ClaimsIdentity.DefaultNameClaimType, u.Login),
