@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {}
+    "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {}
   },
   "projects": {
-    "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
+    "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
+        "projectUniqueName": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
         "projectName": "Trello.DAL",
-        "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
-        "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
-        "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\obj\\",
+        "projectPath": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj",
+        "packagesPath": "C:\\Users\\NotePad\\.nuget\\packages\\",
+        "outputPath": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Katsiaryna.Louchava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NotePad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

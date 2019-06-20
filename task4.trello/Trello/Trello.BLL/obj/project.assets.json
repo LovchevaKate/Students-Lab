@@ -773,7 +773,7 @@
       ]
     },
     "NETStandard.Library/2.0.3": {
-      "sha512": "st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "sha512": "17gGTvTkBLK/C8be4dXcFRNo6BsWfNIicvQIVwERPzxigIe3otMc+xsCj4CtTfw6hTlpVVvytxtWUxSYPA3kpw==",
       "type": "package",
       "path": "netstandard.library/2.0.3",
       "files": [
@@ -1434,23 +1434,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\": {},
+    "C:\\Users\\NotePad\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
+      "projectUniqueName": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
       "projectName": "Trello.BLL",
-      "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
-      "packagesPath": "C:\\Users\\Katsiaryna.Louchava\\.nuget\\packages\\",
-      "outputPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\obj\\",
+      "projectPath": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\Trello.BLL.csproj",
+      "packagesPath": "C:\\Users\\NotePad\\.nuget\\packages\\",
+      "outputPath": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Katsiaryna.Louchava\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NotePad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1463,8 +1463,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
-              "projectPath": "D:\\Tasks\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj"
+            "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj": {
+              "projectPath": "D:\\Students-Lab\\Students-Lab\\task4.trello\\Trello\\Trello.DAL\\Trello.DAL.csproj"
             }
           }
         }

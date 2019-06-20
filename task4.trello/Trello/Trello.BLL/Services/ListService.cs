@@ -24,8 +24,15 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. list == null");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<ListBLL, List>());
-            List list = Mapper.Map<ListBLL, List>(listBLL);
+            //Mapper.Initialize(cfg => cfg.CreateMap<ListBLL, List>());
+            //List list = Mapper.Map<ListBLL, List>(listBLL);
+
+            List list = new List()
+            {
+                Id = listBLL.Id,
+                Title = listBLL.Title,
+                IdUser = listBLL.User
+            };
 
             Database.Lists.Create(list);
             Database.Save();
@@ -68,10 +75,11 @@ namespace Trello.BLL.Services
 
             foreach (var l in lists)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
-                ListBLL listBLL = Mapper.Map<List, ListBLL>(l);
+                ListBLL list = new ListBLL() { Id = l.Id, Title = l.Title, User = l.IdUser };
+                //Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
+                //ListBLL listBLL = Mapper.Map<List, ListBLL>(l);
 
-                listsBLL.Add(listBLL);
+                listsBLL.Add(list);
             }
 
             return listsBLL;

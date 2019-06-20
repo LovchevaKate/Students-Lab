@@ -60,15 +60,14 @@ class SignIn extends Component {
         .then(users => {
           console.log(users);
           localStorage.setItem("loggedIn", "loggedIn");
-          localStorage.setItem("login", users.login);
-          localStorage.setItem("token", users.token);
-          localStorage.setItem("userId", users.id);
-          this.props.history.push("/board");
+          localStorage.setItem("login", users.data.login);
+          localStorage.setItem("token", users.data.token);
+          localStorage.setItem("userId", users.data.id);
         })
+        .then(this.props.history.push("/board"))
         .catch(e => {
           console.log(e);
         });
-      this.props.history.push("/login");
     } catch (e) {
       console.log(e);
     }
