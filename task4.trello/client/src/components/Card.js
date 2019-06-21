@@ -8,44 +8,44 @@ import axios from "axios";
 
 class Board extends Component {
   state = {
-    card: [],
-    list: []
+    text: "",
+    card: []
   };
 
-  handleInputChange = ({ target: { name, value } }) => {
-    this.setState({
-      [name]: value
-    });
-    console.log(name);
-  };
+  //   handleInputChange = ({ target: { name, value } }) => {
+  //     this.setState({
+  //       [name]: value
+  //     });
+  //     console.log(name);
+  //   };
 
   componentDidMount() {
-    let userId = localStorage.getItem("userId");
+    //let listId = localStorage.getItem("userId");
     axios
-      .get(`https://localhost:44342/api/user/${userId}/ListAPI`)
-      .then(list => {
+      .get(`https://localhost:44342/api/list/${listId}/CardAPI`)
+      .then(card => {
         this.setState({
-          list: list.data
+          card: card.data
         });
 
-        console.log(this.state.list);
+        console.log(this.state.card);
       })
       .catch(e => {
         console.log(e);
       });
   }
 
-  createList = async e => {
+  createCard = async e => {
     try {
       e.preventDefault();
-      let userId = localStorage.getItem("userId");
+      //   let userId = localStorage.getItem("userId");
       axios
-        .post(`https://localhost:44342/api/user/${userId}/ListAPI`, {
-          userId: userId,
-          title: this.state.title
+        .post(`https://localhost:44342/api/list/${listId}/CardAPI`, {
+          listId: listId,
+          text: this.state.text
         })
-        .then(list => {
-          console.log(list);
+        .then(card => {
+          console.log(card);
         })
         .catch(e => {
           console.log(e);

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Trello.BLL.Interfaces;
 using Trello.BLL.Models;
 using Trello.DAL.Entities;
@@ -24,8 +25,9 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. card == null");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<CardBLL, Card>());
-            Card card = Mapper.Map<CardBLL, Card>(cardBLL);
+            //Mapper.Initialize(cfg => cfg.CreateMap<CardBLL, Card>());
+            //Card card = Mapper.Map<CardBLL, Card>(cardBLL);
+            Card card = new Card() { Text = cardBLL.Text, IdList = cardBLL.List };
 
             Database.Cards.Create(card);
             Database.Save();
@@ -56,9 +58,9 @@ namespace Trello.BLL.Services
             return cardBLL;
         }
 
-        public List<CardBLL> GetCards()
+        public List<CardBLL> GetCards(int listId)
         {
-            var cards = Database.Cards.GetAll();
+            var cards = Database.Cards.GetAll().Where(x=> x.IdList== listId);
             List<CardBLL> cardsBLL = new List<CardBLL>();
 
             if (cards == null)
@@ -68,8 +70,9 @@ namespace Trello.BLL.Services
 
             foreach (var c in cards)
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<Card, CardBLL>());
-                CardBLL cardBLL = Mapper.Map<Card, CardBLL>(c);
+                //Mapper.Initialize(cfg => cfg.CreateMap<Card, CardBLL>());
+                //CardBLL cardBLL = Mapper.Map<Card, CardBLL>(c);
+                CardBLL cardBLL = new CardBLL() { Id = c.Id, List = c.IdList, Text = c.Text };
 
                 cardsBLL.Add(cardBLL);
             }

@@ -7,7 +7,7 @@ namespace Trello.BLL.Interfaces
     {
         void CreateCard(CardBLL card);
         CardBLL GetCard(int id);
-        List<CardBLL> GetCards();
+        List<CardBLL> GetCards(int listId);
         void UpdateCard(CardBLL card);
         void DeleteCard(int id);
     }
