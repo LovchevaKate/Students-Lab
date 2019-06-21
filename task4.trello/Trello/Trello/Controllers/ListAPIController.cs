@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
 
@@ -24,7 +25,8 @@ namespace Trello.Controllers
         {
             try
             {
-                List<ListBLL> lists = listService.GetLists();
+                //var lists = listService.GetLists().Where(x=>x.User==user);
+                var lists = listService.GetLists();
 
                 if (lists == null)
                 {

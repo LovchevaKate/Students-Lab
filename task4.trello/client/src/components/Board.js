@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import TextArea from "react-textarea-autosize";
+import Button from "@material-ui/core/Button";
 import axios from "axios";
 
 class Board extends Component {
@@ -14,15 +16,31 @@ class Board extends Component {
     error: null
   };
 
+  handleInputChange = ({ target: { name, value } }) => {
+    this.setState({
+      [name]: value
+    });
+  };
+
   componentDidMount() {
+    fetch("https://localhost:44342/api/ListAPI")
+      .then(response => console.log(response))
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
+  createList = async e => {
     try {
-      console.log(localStorage.getItem("userId"));
+      e.preventDefault();
       axios
         .post("https://localhost:44342/api/ListAPI", {
-          userID: localStorage.getItem("userId")
+          user: localStorage.getItem("userId"),
+          title: this.state.title
         })
-        .then(lists => {
-          console.log(lists);
+        .then(list => {
+          console.log(list);
+          console.log("create");
         })
         .catch(e => {
           console.log(e);
@@ -30,7 +48,7 @@ class Board extends Component {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   render() {
     const { idList, title, user, card, isFetching, error } = this.state;
@@ -39,7 +57,7 @@ class Board extends Component {
     if (error) return <div>{`Error: ${error.message}`}</div>;
 
     return (
-      <div>
+      <form onSubmit={this.createList}>
         <div style={styles.boardConteiner}>
           {this.state.card.map(item => (
             <Card style={styles.cardConteiner} key={item.id}>
@@ -51,12 +69,15 @@ class Board extends Component {
         </div>
         <div style={styles.boardConteiner}>
           <Card style={styles.cardConteiner}>
-            <CardContent>
-              <Typography gutterBottom />
-            </CardContent>
+            <TextArea
+              autoFocus
+              onChange={this.handleInputChange}
+              placeholder="Enter list title"
+            />
+            <Button type="submit">Create </Button>
           </Card>
         </div>
-      </div>
+      </form>
     );
   }
 }
