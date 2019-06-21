@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Trello.BLL.Interfaces;
 using Trello.BLL.Models;
 using Trello.DAL.Entities;
@@ -63,9 +64,9 @@ namespace Trello.BLL.Services
             return listBLL;
         }
 
-        public List<ListBLL> GetLists()
+        public List<ListBLL> GetLists(int userId)
         {
-            var lists = Database.Lists.GetAll();
+            var lists = Database.Lists.GetAll().Where(x=> x.IdUser==userId).ToList();
             List<ListBLL> listsBLL = new List<ListBLL>();
 
             if (lists == null)

@@ -8,23 +8,33 @@ import axios from "axios";
 
 class Board extends Component {
   state = {
-    idList: 0,
     title: "",
-    user: 0,
     card: [],
-    isFetching: true,
-    error: null
+    list: []
   };
 
   handleInputChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value
     });
+    console.log(name);
   };
 
   componentDidMount() {
-    fetch("https://localhost:44342/api/ListAPI")
-      .then(response => console.log(response))
+    let userId = localStorage.getItem("userId");
+    axios
+      .get(`https://localhost:44342/api/user/${userId}/ListAPI`)
+      .then(list => {
+        // list.data.map(l => {
+        //   this.state.title = l.title;
+        //   this.state.card = l.card;
+        // });
+        this.setState({
+          list: list.data
+        });
+
+        console.log(this.state.list);
+      })
       .catch(e => {
         console.log(e);
       });
@@ -33,14 +43,14 @@ class Board extends Component {
   createList = async e => {
     try {
       e.preventDefault();
+      let userId = localStorage.getItem("userId");
       axios
-        .post("https://localhost:44342/api/ListAPI", {
-          user: localStorage.getItem("userId"),
+        .post(`https://localhost:44342/api/user/${userId}/ListAPI`, {
+          userId: userId,
           title: this.state.title
         })
         .then(list => {
           console.log(list);
-          console.log("create");
         })
         .catch(e => {
           console.log(e);
@@ -51,33 +61,51 @@ class Board extends Component {
   };
 
   render() {
-    const { idList, title, user, card, isFetching, error } = this.state;
-    // if (isFetching) return <div>...Loading</div>;
-
-    if (error) return <div>{`Error: ${error.message}`}</div>;
-
     return (
-      <form onSubmit={this.createList}>
+      <div>
         <div style={styles.boardConteiner}>
-          {this.state.card.map(item => (
-            <Card style={styles.cardConteiner} key={item.id}>
+          {this.state.list.map(item => (
+            <Card style={styles.cardConteiner}>
               <CardContent>
-                <Typography gutterBottom>{title}</Typography>
+                {item.title}
+                {/* {this.state.card.map(item => (
+                <Typography>{item}</Typography>
+              ))} */}
               </CardContent>
             </Card>
           ))}
         </div>
         <div style={styles.boardConteiner}>
-          <Card style={styles.cardConteiner}>
-            <TextArea
-              autoFocus
-              onChange={this.handleInputChange}
-              placeholder="Enter list title"
-            />
-            <Button type="submit">Create </Button>
-          </Card>
+          <form onSubmit={this.createList}>
+            <Card style={styles.cardConteiner}>
+              <TextArea
+                name="title"
+                autoFocus
+                onChange={this.handleInputChange}
+                placeholder="Enter list title"
+                style={{
+                  resize: "none",
+                  width: "100%",
+                  overflow: "hidden",
+                  outline: "none",
+                  border: "none",
+                  padding: "10px"
+                }}
+              />
+              <Button
+                type="submit"
+                style={{
+                  color: "white",
+                  backgroundColor: "#5aac44",
+                  margin: "10px"
+                }}
+              >
+                Create{" "}
+              </Button>
+            </Card>
+          </form>
         </div>
-      </form>
+      </div>
     );
   }
 }
@@ -85,7 +113,7 @@ class Board extends Component {
 const styles = {
   boardConteiner: {
     display: "flex",
-    flexDirection: "row"
+    margin: 10
   },
   cardConteiner: {
     width: 200,

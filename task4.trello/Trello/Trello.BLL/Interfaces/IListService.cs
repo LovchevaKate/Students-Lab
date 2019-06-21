@@ -7,7 +7,7 @@ namespace Trello.BLL.Interfaces
     {
         void CreateList(ListBLL list);
         ListBLL GetList(int id);
-        List<ListBLL> GetLists();
+        List<ListBLL> GetLists(int userId);
         void UpdateList(ListBLL list);
         void DeleteList(int id);
     }

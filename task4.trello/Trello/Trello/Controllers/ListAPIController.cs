@@ -8,7 +8,7 @@ using Trello.BLL.Services;
 
 namespace Trello.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user/{userId}/[controller]")]
     [ApiController]
     public class ListAPIController : ControllerBase
     {
@@ -19,14 +19,13 @@ namespace Trello.Controllers
         }
 
         // GET: api/ListAPI
-        [Authorize]
+        //[Authorize]
         [HttpGet]
-        public IActionResult GetLists()
+        public IActionResult GetLists([FromRoute] int userId)
         {
             try
             {
-                //var lists = listService.GetLists().Where(x=>x.User==user);
-                var lists = listService.GetLists();
+                List<ListBLL> lists = listService.GetLists(userId);
 
                 if (lists == null)
                 {
@@ -93,10 +92,11 @@ namespace Trello.Controllers
         // POST: api/ListAPI
         //[Authorize(Roles = "admin")]
         [HttpPost]
-        public IActionResult PostList([FromBody]ListBLL list)
+        public IActionResult PostList([FromBody]ListBLL list, [FromRoute]int userId)
         {
             try
             {
+                list.User = userId;
                 listService.CreateList(list);
 
                 return Ok();
