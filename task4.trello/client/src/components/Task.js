@@ -22,7 +22,7 @@ class Board extends Component {
   componentDidMount() {
     //let listId = localStorage.getItem("userId");
     axios
-      .get(`https://localhost:44342/api/list/${listId}/CardAPI`)
+      .get(`https://localhost:44342/api/list/${this.state.idList}/CardAPI`)
       .then(card => {
         this.setState({
           card: card.data
@@ -35,42 +35,37 @@ class Board extends Component {
       });
   }
 
-  createCard = async e => {
-    try {
-      e.preventDefault();
-      //   let userId = localStorage.getItem("userId");
-      axios
-        .post(`https://localhost:44342/api/list/${listId}/CardAPI`, {
-          listId: listId,
-          text: this.state.text
-        })
-        .then(card => {
-          console.log(card);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // createCard = async e => {
+  //   try {
+  //     e.preventDefault();
+  //     //   let userId = localStorage.getItem("userId");
+  //     axios
+  //       .post(`https://localhost:44342/api/list/${listId}/CardAPI`, {
+  //         listId: listId,
+  //         text: this.state.text
+  //       })
+  //       .then(card => {
+  //         console.log(card);
+  //       })
+  //       .catch(e => {
+  //         console.log(e);
+  //       });
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
   render() {
     return (
       <div>
         <div style={styles.boardConteiner}>
-          {this.state.list.map(item => (
+          {this.state.card.map(item => (
             <Card style={styles.cardConteiner}>
-              <CardContent>
-                {item.title}
-                {/* {this.state.card.map(item => (
-                <Typography>{item}</Typography>
-              ))} */}
-              </CardContent>
+              <CardContent>{item.text}</CardContent>
             </Card>
           ))}
         </div>
-        <div style={styles.boardConteiner}>
+        {/* <div style={styles.boardConteiner}>
           <form onSubmit={this.createList}>
             <Card style={styles.cardConteiner}>
               <TextArea
@@ -99,7 +94,7 @@ class Board extends Component {
               </Button>
             </Card>
           </form>
-        </div>
+        </div> */}
       </div>
     );
   }

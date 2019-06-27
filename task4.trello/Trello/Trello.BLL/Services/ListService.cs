@@ -58,8 +58,15 @@ namespace Trello.BLL.Services
             if (list == null)
                 throw new Exception("list don't find");
 
-            Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
-            ListBLL listBLL = Mapper.Map<List, ListBLL>(list);
+            //Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
+            //ListBLL listBLL = Mapper.Map<List, ListBLL>(list);
+
+            ListBLL listBLL = new ListBLL()
+            {
+                Id = list.Id,
+                Title = list.Title,
+                User = list.IdUser
+            };
 
             return listBLL;
         }

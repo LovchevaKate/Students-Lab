@@ -6,7 +6,7 @@ using Trello.BLL.Services;
 
 namespace Trello.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/list/{listId}/[controller]")]
     [ApiController]
     public class CardAPIController : ControllerBase
     {
@@ -18,11 +18,11 @@ namespace Trello.Controllers
 
         // GET: api/CardAPI
         [HttpGet]
-        public IActionResult GetCards()
+        public IActionResult GetCards([FromRoute] int listId)
         {
             try
             {
-                List<CardBLL> cards = cardService.GetCards();
+                List<CardBLL> cards = cardService.GetCards(listId);
 
                 if (cards == null)
                 {

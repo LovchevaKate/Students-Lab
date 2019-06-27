@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import TextArea from "react-textarea-autosize";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import Task from "./Task";
 
 class Board extends Component {
   state = {
@@ -39,14 +40,26 @@ class Board extends Component {
     try {
       e.preventDefault();
       let userId = localStorage.getItem("userId");
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      console.log(userId);
       axios
         .post(`https://localhost:44342/api/user/${userId}/ListAPI`, {
           userId: userId,
           title: this.state.title
         })
-        .then(list => {
-          console.log(list);
-        })
+        .catch(e => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  deleteList = id => {
+    try {
+      let userId = localStorage.getItem("userId");
+      axios
+        .delete(`https://localhost:44342/api/user/${userId}/ListAPI/${id}`)
         .catch(e => {
           console.log(e);
         });
@@ -60,13 +73,21 @@ class Board extends Component {
       <div>
         <div style={styles.boardConteiner}>
           {this.state.list.map(item => (
-            <Card style={styles.cardConteiner}>
+            <Card style={styles.cardConteiner} id={item.id}>
               <CardContent>
                 {item.title}
-                {/* {this.state.card.map(item => (
-                <Typography>{item}</Typography>
-              ))} */}
+                <Task />
               </CardContent>
+              <Button
+                onClick={() => this.deleteList(item.id)}
+                style={{
+                  color: "white",
+                  backgroundColor: "#5aac44",
+                  margin: "10px"
+                }}
+              >
+                Delete
+              </Button>
             </Card>
           ))}
         </div>
@@ -95,7 +116,7 @@ class Board extends Component {
                   margin: "10px"
                 }}
               >
-                Create{" "}
+                Create
               </Button>
             </Card>
           </form>
