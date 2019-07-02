@@ -19,7 +19,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/ListAPI
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult GetLists([FromRoute] int userId)
         {
@@ -41,7 +41,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/ListAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetList([FromRoute] int id)
         {
@@ -63,7 +63,7 @@ namespace Trello.Controllers
         }
 
         // PUT: api/ListAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPut]
         public IActionResult PutList([FromBody]ListBLL list)
         {
@@ -90,7 +90,7 @@ namespace Trello.Controllers
         }
 
         // POST: api/ListAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPost]
         public IActionResult PostList([FromBody]ListBLL list, [FromRoute]int userId)
         {
@@ -108,7 +108,7 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/ListAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteList([FromRoute] int id)
         {

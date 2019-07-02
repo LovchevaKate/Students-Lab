@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
 using Trello.Models;
@@ -21,7 +18,6 @@ namespace Trello.Controllers
     {
         readonly UserService userService;
         UserHelper userHelper = new UserHelper();
-
         public IdentityController(UserService serv)
         {
             userService = serv;
@@ -36,7 +32,6 @@ namespace Trello.Controllers
             {
                 return Unauthorized();
             }
-
             var now = DateTime.UtcNow;
             var jwt = new JwtSecurityToken(
                     issuer: AuthOptions.ISSUER,

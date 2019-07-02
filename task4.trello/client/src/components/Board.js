@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import TextArea from "react-textarea-autosize";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
@@ -9,7 +8,6 @@ import Task from "./Task";
 
 class Board extends Component {
   state = {
-    card: [],
     list: []
   };
 
@@ -17,33 +15,34 @@ class Board extends Component {
     this.setState({
       [name]: value
     });
-    console.log(name);
   };
 
   componentDidMount() {
     let userId = localStorage.getItem("userId");
     axios
-      .get(`https://localhost:44342/api/user/${userId}/ListAPI`)
+      .get(`https://localhost:44342/api/user/${userId}/ListAPI`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      })
       .then(list => {
         this.setState({
           list: list.data
         });
-
-        console.log(this.state.list);
       })
       .catch(e => {
         console.log(e);
       });
   }
 
-  createList = async e => {
+  createList = () => {
     try {
-      e.preventDefault();
       let userId = localStorage.getItem("userId");
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      console.log(userId);
       axios
         .post(`https://localhost:44342/api/user/${userId}/ListAPI`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          },
           userId: userId,
           title: this.state.title
         })
@@ -59,7 +58,11 @@ class Board extends Component {
     try {
       let userId = localStorage.getItem("userId");
       axios
-        .delete(`https://localhost:44342/api/user/${userId}/ListAPI/${id}`)
+        .delete(`https://localhost:44342/api/user/${userId}/ListAPI/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          }
+        })
         .catch(e => {
           console.log(e);
         });
@@ -76,50 +79,51 @@ class Board extends Component {
             <Card style={styles.cardConteiner} id={item.id}>
               <CardContent>
                 {item.title}
-                <Task />
+                <Task idcard={item.id} />
               </CardContent>
+
               <Button
                 onClick={() => this.deleteList(item.id)}
                 style={{
                   color: "white",
-                  backgroundColor: "#5aac44",
-                  margin: "10px"
+                  backgroundColor: "#E85668",
+                  margin: "15px"
                 }}
               >
-                Delete
+                Delete Card
               </Button>
             </Card>
           ))}
         </div>
+
         <div style={styles.boardConteiner}>
-          <form onSubmit={this.createList}>
-            <Card style={styles.cardConteiner}>
-              <TextArea
-                name="title"
-                autoFocus
-                onChange={this.handleInputChange}
-                placeholder="Enter list title"
-                style={{
-                  resize: "none",
-                  width: "100%",
-                  overflow: "hidden",
-                  outline: "none",
-                  border: "none",
-                  padding: "10px"
-                }}
-              />
-              <Button
-                type="submit"
-                style={{
-                  color: "white",
-                  backgroundColor: "#5aac44",
-                  margin: "10px"
-                }}
-              >
-                Create
-              </Button>
-            </Card>
-          </form>
+          <Card style={styles.cardConteiner}>
+            <TextArea
+              name="title"
+              autoFocus
+              onChange={this.handleInputChange}
+              placeholder="Enter list title"
+              style={{
+                resize: "none",
+                width: "100%",
+                overflow: "hidden",
+                outline: "none",
+                border: "none",
+                padding: "10px"
+              }}
+            />
+
+            <Button
+              onClick={this.createList}
+              style={{
+                color: "white",
+                backgroundColor: "#45D09E",
+                margin: "10px"
+              }}
+            >
+              Create new Card
+            </Button>
+          </Card>
         </div>
       </div>
     );

@@ -46,11 +46,6 @@ class SignIn extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    console.log({
-      password: this.state.password,
-      email: this.state.login
-    });
-
     try {
       axios
         .post("https://localhost:44342/api/Identity/token", {

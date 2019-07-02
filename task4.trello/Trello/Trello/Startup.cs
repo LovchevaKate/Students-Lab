@@ -16,6 +16,9 @@ using Trello.DAL.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Trello.BLL.Interfaces;
+
+using Microsoft.Extensions.Options;
 
 namespace Trello
 {
@@ -47,28 +50,32 @@ namespace Trello
             services.AddTransient<ListService>();
             services.AddTransient<CardService>();
             services.AddTransient<CommentService>();
-            services.AddTransient<UnitOfWork>();            
+            services.AddTransient<UnitOfWork>();
 
-            //services.AddCors(o => o.AddPolicy("AllowOrigin", builder =>
-            //{
-            //    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            //}));
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
-                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidIssuer = "ValidIssuer",
-                    ValidAudience = "ValidateAudience",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IssuerSigningSecretKey")),
+                    // укзывает, будет ли валидироваться издатель при валидации токена
+                    ValidateIssuer = true,
+                    // строка, представляющая издателя
+                    ValidIssuer = AuthOptions.ISSUER,
+
+                    // будет ли валидироваться потребитель токена
+                    ValidateAudience = true,
+                    // установка потребителя токена
+                    ValidAudience = AuthOptions.AUDIENCE,
+                    // будет ли валидироваться время существования
                     ValidateLifetime = true,
+
+                    // установка ключа безопасности
+                    IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                    // валидация ключа безопасности
                     ValidateIssuerSigningKey = true,
-                    ClockSkew = TimeSpan.Zero
                 };
             });
         }

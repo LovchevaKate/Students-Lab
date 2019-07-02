@@ -22,7 +22,7 @@ class NavBar extends Component {
 
   // componentWillUpdate() {
   //   let loggedIn = localStorage.getItem("loggedIn");
-  //   if (loggedIn == "loggedIn")
+  //   if (loggedIn === "loggedIn")
   //     this.setState({
   //       LoggedIn: true
   //     });
@@ -32,7 +32,7 @@ class NavBar extends Component {
 
   renderloggedIn = () => {
     let loggedIn = localStorage.getItem("loggedIn");
-    if (loggedIn == "loggedIn")
+    if (loggedIn === "loggedIn")
       this.setState({
         LoggedIn: true
       });
@@ -87,14 +87,22 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Button color="inherit" href="/" className={classes.title}>
-              Home
+            <Button color="inherit" href="/board" className={classes.title}>
+              Board
             </Button>
             <Button color="inherit" href="/signin" className={classes.title}>
               Sign In
             </Button>
             <Button color="inherit" href="/signup" className={classes.title}>
               Sign Up
+            </Button>
+            <Button
+              color="inherit"
+              onClick={this.logOffClick}
+              href="/signin"
+              className={classes.title}
+            >
+              Log out
             </Button>
           </Toolbar>
         </AppBar>
