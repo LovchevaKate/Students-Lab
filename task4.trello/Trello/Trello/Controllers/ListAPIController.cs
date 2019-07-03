@@ -97,9 +97,9 @@ namespace Trello.Controllers
             try
             {
                 list.User = userId;
-                listService.CreateList(list);
+                listService.CreateList(list);                
 
-                return Ok();
+                return Ok(list);
             }
             catch (Exception ex)
             {

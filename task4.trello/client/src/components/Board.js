@@ -39,12 +39,22 @@ class Board extends Component {
     try {
       let userId = localStorage.getItem("userId");
       axios
-        .post(`https://localhost:44342/api/user/${userId}/ListAPI`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+        .post(
+          `https://localhost:44342/api/user/${userId}/ListAPI`,
+          {
+            userId: userId,
+            title: this.state.title
           },
-          userId: userId,
-          title: this.state.title
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+          }
+        )
+        .then(list => {
+          this.setState({
+            list: [...this.state.list, list.data]
+          });
         })
         .catch(e => {
           console.log(e);

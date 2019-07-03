@@ -34,3 +34,15 @@ D:\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DA
 D:\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csproj.CopyComplete
 D:\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.dll
 D:\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.pdb
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.deps.json
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.dll
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Trello.DAL.pdb
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.dll
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.xml
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csprojAssemblyReference.cache
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csproj.CoreCompileInputs.cache
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.AssemblyInfoInputs.cache
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.AssemblyInfo.cs
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.csproj.CopyComplete
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.dll
+D:\SL\Students-Lab\task4.trello\Trello\Trello.DAL\obj\Debug\netcoreapp2.1\Trello.DAL.pdb
