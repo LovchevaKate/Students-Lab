@@ -11,11 +11,6 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {localStorage.getItem("token") ? (
-          <Redirect from="/" to="/board" />
-        ) : (
-          <Redirect from="/" to="/signin" />
-        )}
         <div>
           <NavBar />
           <Route name="signin" exact path="/signin" component={SignIn} />

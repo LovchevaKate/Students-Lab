@@ -46,24 +46,18 @@ class SignUp extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    console.log({
-      password: this.state.password,
-      email: this.state.login
-    });
-
     try {
       axios
         .post("https://localhost:44342/api/UserAPI", {
           password: this.state.password,
           login: this.state.login
         })
-        .then(console.log)
         .catch(e => {
-          console.log(e);
+          alert(e);
         });
       this.props.history.push("/signin");
     } catch (e) {
-      console.log(e);
+      alert(e);
     }
   };
 

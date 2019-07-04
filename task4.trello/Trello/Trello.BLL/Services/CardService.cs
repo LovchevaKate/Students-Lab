@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Trello.BLL.Interfaces;
@@ -25,8 +24,6 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. card == null");
             }
 
-            //Mapper.Initialize(cfg => cfg.CreateMap<CardBLL, Card>());
-            //Card card = Mapper.Map<CardBLL, Card>(cardBLL);
             Card card = new Card() { Text = cardBLL.Text, IdList = cardBLL.List };
 
             Database.Cards.Create(card);
@@ -53,15 +50,19 @@ namespace Trello.BLL.Services
             if (card == null)
                 throw new Exception("card don't find");
 
-            Mapper.Initialize(cfg => cfg.CreateMap<Card, CardBLL>());
-            CardBLL cardBLL = Mapper.Map<Card, CardBLL>(card);
+            CardBLL cardBLL = new CardBLL()
+            {
+                Id = card.Id,
+                List = card.IdList,
+                Text = card.Text
+            };
 
             return cardBLL;
         }
 
         public List<CardBLL> GetCards(int listId)
         {
-            var cards = Database.Cards.GetAll().Where(x=> x.IdList== listId);
+            var cards = Database.Cards.GetAll().Where(x => x.IdList == listId);
             List<CardBLL> cardsBLL = new List<CardBLL>();
 
             if (cards == null)
@@ -71,8 +72,6 @@ namespace Trello.BLL.Services
 
             foreach (var c in cards)
             {
-                //Mapper.Initialize(cfg => cfg.CreateMap<Card, CardBLL>());
-                //CardBLL cardBLL = Mapper.Map<Card, CardBLL>(c);
                 CardBLL cardBLL = new CardBLL() { Id = c.Id, List = c.IdList, Text = c.Text };
 
                 cardsBLL.Add(cardBLL);
@@ -88,8 +87,12 @@ namespace Trello.BLL.Services
                 throw new Exception("error. update card bll");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<CardBLL, Card>());
-            Card card = Mapper.Map<CardBLL, Card>(cardBLL);
+            Card card = new Card()
+            {
+                Id = cardBLL.Id,
+                IdList = cardBLL.List,
+                Text = cardBLL.Text
+            };
 
             Database.Cards.Update(card);
             Database.Save();

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Trello.BLL.Interfaces;
@@ -32,7 +31,7 @@ namespace Trello.BLL.Services
             };
 
             Database.Lists.Create(list);
-            
+
             Database.Save();
 
             return list.Id;
@@ -57,9 +56,6 @@ namespace Trello.BLL.Services
             if (list == null)
                 throw new Exception("list don't find");
 
-            //Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
-            //ListBLL listBLL = Mapper.Map<List, ListBLL>(list);
-
             ListBLL listBLL = new ListBLL()
             {
                 Id = list.Id,
@@ -72,7 +68,7 @@ namespace Trello.BLL.Services
 
         public List<ListBLL> GetLists(int userId)
         {
-            var lists = Database.Lists.GetAll().Where(x=> x.IdUser==userId).ToList();
+            var lists = Database.Lists.GetAll().Where(x => x.IdUser == userId).ToList();
             List<ListBLL> listsBLL = new List<ListBLL>();
 
             if (lists == null)
@@ -83,8 +79,6 @@ namespace Trello.BLL.Services
             foreach (var l in lists)
             {
                 ListBLL list = new ListBLL() { Id = l.Id, Title = l.Title, User = l.IdUser };
-                //Mapper.Initialize(cfg => cfg.CreateMap<List, ListBLL>());
-                //ListBLL listBLL = Mapper.Map<List, ListBLL>(l);
 
                 listsBLL.Add(list);
             }
@@ -99,8 +93,12 @@ namespace Trello.BLL.Services
                 throw new Exception("error. update list bll");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<ListBLL, List>());
-            List list = Mapper.Map<ListBLL, List>(listBLL);
+            List list = new List()
+            {
+                Id = listBLL.Id,
+                IdUser = listBLL.User,
+                Title = listBLL.Title
+            };
 
             Database.Lists.Update(list);
             Database.Save();

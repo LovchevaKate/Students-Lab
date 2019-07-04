@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
-using Trello.Models;
 
 namespace Trello.Controllers
 {
@@ -97,8 +95,12 @@ namespace Trello.Controllers
         {
             try
             {
+                if (list.Title==null)
+                {
+                    return BadRequest();
+                }
                 list.User = userId;
-                list.Id = listService.CreateList(list);                
+                list.Id = listService.CreateList(list);
 
                 return Ok(list);
             }

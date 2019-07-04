@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Trello.BLL.Models;
@@ -92,15 +93,20 @@ namespace Trello.Controllers
         {
             try
             {
+                List<UserBLL> users = userService.GetUsers();
                 if (user.Login == null || user.Password == null)
                 {
                     throw new Exception("Error. Password == null or Login == null");
                 }
 
-                else
+                foreach (UserBLL u in users)
                 {
-                    userService.CreateUser(user);
+                    if (u.Login == user.Login)
+                        throw new Exception("Error. Login already exists");
                 }
+
+                userService.CreateUser(user);
+
 
                 return Ok();
             }

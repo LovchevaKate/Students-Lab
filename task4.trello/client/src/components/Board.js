@@ -8,12 +8,13 @@ import Task from "./Task";
 
 class Board extends Component {
   state = {
-    list: []
+    list: [],
+    title: ""
   };
 
-  handleInputChange = ({ target: { name, value } }) => {
+  handleInputChange = e => {
     this.setState({
-      [name]: value
+      title: e.target.value
     });
   };
 
@@ -54,6 +55,9 @@ class Board extends Component {
         .then(list => {
           this.setState({
             list: [...this.state.list, list.data]
+          });
+          this.setState({
+            title: ""
           });
         })
         .catch(e => {
@@ -116,6 +120,7 @@ class Board extends Component {
             <TextArea
               name="title"
               autoFocus
+              value={this.state.title}
               onChange={this.handleInputChange}
               placeholder="Enter list title"
               style={{
@@ -153,7 +158,8 @@ const styles = {
   cardConteiner: {
     width: 200,
     borderRadius: 3,
-    margin: 10
+    margin: 10,
+    height: "100%"
   }
 };
 

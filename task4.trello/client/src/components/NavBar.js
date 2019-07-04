@@ -20,18 +20,6 @@ class NavBar extends Component {
     });
   };
 
-  // componentWillUpdate() {
-  //   localStorage.getItem("loggedIn")
-  //     ? this.setState({
-  //         LoggedIn: true
-  //       })
-  //     : this.setState({
-  //         LoggedIn: false
-  //       });
-  //   console.log("navbar");
-  //   console.log(this.state);
-  // }
-
   renderloggedIn = () => {
     let loggedIn = localStorage.getItem("loggedIn");
     if (loggedIn === "loggedIn")
@@ -110,7 +98,9 @@ class NavBar extends Component {
   };
 
   render() {
-    return this.state.LoggedIn ? this.renderloggedOut() : this.renderloggedIn();
+    console.log(this.state.LoggedIn);
+
+    return this.state.LoggedIn ? this.renderloggedIn() : this.renderloggedOut();
   }
 }
 

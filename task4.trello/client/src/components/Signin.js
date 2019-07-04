@@ -37,7 +37,7 @@ const styles = theme => ({
 });
 
 class SignIn extends Component {
-  state = { login: "", password: "" };
+  state = { login: "", password: "", LoggedIn: false };
 
   onChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
@@ -57,16 +57,16 @@ class SignIn extends Component {
           localStorage.setItem("login", users.data.login);
           localStorage.setItem("token", users.data.token);
           localStorage.setItem("userId", users.data.id);
+          this.setState({ LoggedIn: true });
         })
         .then(() => {
           this.props.history.push("/board");
-          //timeout(this.props.history.push("/board"), 1000);
         })
         .catch(e => {
-          console.log(e);
+          alert(e);
         });
     } catch (e) {
-      console.log(e);
+      alert(e);
     }
   };
 

@@ -95,6 +95,11 @@ namespace Trello.Controllers
         {
             try
             {
+                if (card.Text == null)
+                {
+                    return BadRequest();
+                }
+
                 card.Id = cardService.CreateCard(card);
 
                 return Ok(card);

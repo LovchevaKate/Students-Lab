@@ -7,17 +7,17 @@ import axios from "axios";
 
 class Board extends Component {
   state = {
-    card: []
+    card: [],
+    text: ""
   };
 
-  handleInputChange = ({ target: { name, value } }) => {
+  handleInputChange = e => {
     this.setState({
-      [name]: value
+      text: e.target.value
     });
   };
 
   componentDidMount() {
-    console.log(this.props);
     axios
       .get(`https://localhost:44342/api/list/${this.props.idcard}/CardAPI`, {
         headers: {
@@ -39,17 +39,23 @@ class Board extends Component {
     try {
       e.preventDefault();
       axios
-        .post(`https://localhost:44342/api/list/${this.props.idcard}/CardAPI`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+        .post(
+          `https://localhost:44342/api/list/${this.props.idcard}/CardAPI`,
+          {
+            list: this.props.idcard,
+            text: this.state.text
           },
-          list: this.props.idcard,
-          text: this.state.text
-        })
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+          }
+        )
         .then(card => {
           this.setState({
             card: [...this.state.card, card.data]
           });
+          this.setState({ text: "" });
         })
         .catch(e => {
           console.log(e);
@@ -120,6 +126,7 @@ class Board extends Component {
               <TextArea
                 name="text"
                 autoFocus
+                value={this.state.text}
                 onChange={this.handleInputChange}
                 placeholder="Enter task text"
                 style={{

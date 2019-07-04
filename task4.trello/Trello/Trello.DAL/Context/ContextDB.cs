@@ -21,19 +21,19 @@ namespace Trello.DAL.Context
                 .HasOne(i => i.Card)
                 .WithMany(i => i.Comments)
                 .HasForeignKey(i => i.IdCard)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Card>()
                 .HasOne(i => i.List)
                 .WithMany(i => i.Cards)
                 .HasForeignKey(i => i.IdList)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<List>()
                 .HasOne(i => i.User)
                 .WithMany(i => i.Lists)
                 .HasForeignKey(i => i.IdUser)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }
