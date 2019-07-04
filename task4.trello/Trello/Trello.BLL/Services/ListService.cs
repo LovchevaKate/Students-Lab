@@ -18,25 +18,24 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        public void CreateList(ListBLL listBLL)
+        public int CreateList(ListBLL listBLL)
         {
             if (listBLL == null)
             {
                 throw new Exception("Error. list == null");
             }
 
-            //Mapper.Initialize(cfg => cfg.CreateMap<ListBLL, List>());
-            //List list = Mapper.Map<ListBLL, List>(listBLL);
-
             List list = new List()
             {
-                Id = listBLL.Id,
                 Title = listBLL.Title,
                 IdUser = listBLL.User
             };
 
             Database.Lists.Create(list);
+            
             Database.Save();
+
+            return list.Id;
         }
 
         public void DeleteList(int id)

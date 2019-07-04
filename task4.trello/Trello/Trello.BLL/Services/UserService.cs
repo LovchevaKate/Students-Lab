@@ -29,9 +29,6 @@ namespace Trello.BLL.Services
             var sha256 = new SHA256Managed();
             var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(userBLL.Password)));
 
-            //Mapper.Initialize(cfg => cfg.CreateMap<UserBLL, User>());
-            //User user = Mapper.Map<UserBLL, User>(userBLL);
-
             User user = new User
             {
                 Password = passwordHash,
@@ -61,8 +58,12 @@ namespace Trello.BLL.Services
             if (user == null)
                 throw new Exception("User don't find");
 
-            Mapper.Initialize(cfg => cfg.CreateMap<User, UserBLL>());
-            UserBLL userBLL = Mapper.Map<User, UserBLL>(user);
+            UserBLL userBLL = new UserBLL()
+            {
+                Id = user.Id,
+                Login = user.Login,
+                Password = user.Password
+            };
 
             return userBLL;
         }
@@ -72,9 +73,6 @@ namespace Trello.BLL.Services
             var users = Database.Users.GetAll();
             List<UserBLL> usersBLL = new List<UserBLL>();
             
-            
-            //Mapper.Initialize(cfg => cfg.CreateMap<User, UserBLL>());
-
             if (users == null)
             {
                 throw new Exception("Error create list of users");
@@ -102,8 +100,12 @@ namespace Trello.BLL.Services
                 throw new Exception("error. update user bll");
             }
 
-            Mapper.Initialize(cfg => cfg.CreateMap<UserBLL, User>());
-            User user = Mapper.Map<UserBLL, User>(userBLL);
+            User user = new User()
+            {
+                Id = userBLL.Id,
+                Login = userBLL.Login,
+                Password = userBLL.Password
+            };
 
             Database.Users.Update(user);
             Database.Save();

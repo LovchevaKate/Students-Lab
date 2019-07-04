@@ -16,7 +16,7 @@ class Board extends Component {
     });
   };
 
-  componentWillMount() {
+  componentDidMount() {
     console.log(this.props);
     axios
       .get(`https://localhost:44342/api/list/${this.props.idcard}/CardAPI`, {
@@ -46,6 +46,11 @@ class Board extends Component {
           list: this.props.idcard,
           text: this.state.text
         })
+        .then(card => {
+          this.setState({
+            card: [...this.state.card, card.data]
+          });
+        })
         .catch(e => {
           console.log(e);
         });
@@ -65,6 +70,11 @@ class Board extends Component {
             }
           }
         )
+        .then(card => {
+          this.setState({
+            card: card.data
+          });
+        })
         .catch(e => {
           console.log(e);
         });

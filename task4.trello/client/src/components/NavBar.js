@@ -16,16 +16,18 @@ class NavBar extends Component {
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("login");
     this.setState({
-      LoggedIn: true
+      LoggedIn: false
     });
   };
 
   // componentWillUpdate() {
-  //   let loggedIn = localStorage.getItem("loggedIn");
-  //   if (loggedIn === "loggedIn")
-  //     this.setState({
-  //       LoggedIn: true
-  //     });
+  //   localStorage.getItem("loggedIn")
+  //     ? this.setState({
+  //         LoggedIn: true
+  //       })
+  //     : this.setState({
+  //         LoggedIn: false
+  //       });
   //   console.log("navbar");
   //   console.log(this.state);
   // }
@@ -53,7 +55,7 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Button color="inherit" href="/" className={classes.title}>
+            <Button color="inherit" href="/board" className={classes.title}>
               Home
             </Button>
             <Button
@@ -87,9 +89,6 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Button color="inherit" href="/board" className={classes.title}>
-              Board
-            </Button>
             <Button color="inherit" href="/signin" className={classes.title}>
               Sign In
             </Button>
@@ -111,7 +110,7 @@ class NavBar extends Component {
   };
 
   render() {
-    return this.state.LoggedIn ? this.renderloggedIn() : this.renderloggedOut();
+    return this.state.LoggedIn ? this.renderloggedOut() : this.renderloggedIn();
   }
 }
 

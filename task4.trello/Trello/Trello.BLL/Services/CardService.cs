@@ -18,7 +18,7 @@ namespace Trello.BLL.Services
             Database = uof;
         }
 
-        public void CreateCard(CardBLL cardBLL)
+        public int CreateCard(CardBLL cardBLL)
         {
             if (cardBLL == null)
             {
@@ -31,6 +31,7 @@ namespace Trello.BLL.Services
 
             Database.Cards.Create(card);
             Database.Save();
+            return card.Id;
         }
 
         public void DeleteCard(int id)

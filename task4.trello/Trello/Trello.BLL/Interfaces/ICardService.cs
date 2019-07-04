@@ -5,7 +5,7 @@ namespace Trello.BLL.Interfaces
 {
     public interface ICardService
     {
-        void CreateCard(CardBLL card);
+        int CreateCard(CardBLL card);
         CardBLL GetCard(int id);
         List<CardBLL> GetCards(int listId);
         void UpdateCard(CardBLL card);

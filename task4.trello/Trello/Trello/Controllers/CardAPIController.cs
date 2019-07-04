@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Trello.BLL.Models;
@@ -17,6 +18,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/CardAPI
+        [Authorize]
         [HttpGet]
         public IActionResult GetCards([FromRoute] int listId)
         {
@@ -38,7 +40,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/CardAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetCard([FromRoute] int id)
         {
@@ -60,7 +62,7 @@ namespace Trello.Controllers
         }
 
         // PUT: api/CardAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPut]
         public IActionResult PutCard([FromBody]CardBLL card)
         {
@@ -87,15 +89,15 @@ namespace Trello.Controllers
         }
 
         // POST: api/CardAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPost]
         public IActionResult PostCard([FromBody]CardBLL card)
         {
             try
             {
-                cardService.CreateCard(card);
+                card.Id = cardService.CreateCard(card);
 
-                return Ok();
+                return Ok(card);
             }
             catch (Exception ex)
             {
@@ -104,9 +106,9 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/CardAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult DeleteCard([FromRoute] int id)
+        public IActionResult DeleteCard([FromRoute] int id, [FromRoute] int listId)
         {
             try
             {
@@ -117,8 +119,8 @@ namespace Trello.Controllers
                 else
                 {
                     cardService.DeleteCard(id);
-
-                    return Ok();
+                    List<CardBLL> c = cardService.GetCards(listId);
+                    return Ok(c);
                 }
             }
             catch (Exception ex)

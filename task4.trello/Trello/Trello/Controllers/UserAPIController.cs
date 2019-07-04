@@ -38,7 +38,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/UserAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetUser([FromRoute] int id)
         {
@@ -60,7 +60,7 @@ namespace Trello.Controllers
         }
 
         // PUT: api/UserAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPut]
         public IActionResult PutUser([FromBody]UserBLL user)
         {
@@ -86,8 +86,7 @@ namespace Trello.Controllers
             }
         }
 
-        // POST: api/UserAPI
-        //[Authorize(Roles = "admin")]
+        // POST: api/UserAPI        
         [HttpPost]
         public IActionResult PostUser([FromBody]UserBLL user)
         {
@@ -112,7 +111,7 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/UserAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteUser([FromRoute] int id)
         {

@@ -5,7 +5,7 @@ namespace Trello.BLL.Interfaces
 {
     public interface IListService
     {
-        void CreateList(ListBLL list);
+        int CreateList(ListBLL list);
         ListBLL GetList(int id);
         List<ListBLL> GetLists(int userId);
         void UpdateList(ListBLL list);

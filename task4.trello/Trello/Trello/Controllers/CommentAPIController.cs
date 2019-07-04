@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using Trello.BLL.Models;
@@ -17,6 +18,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/CommentAPI
+        [Authorize]
         [HttpGet]
         public IActionResult GetComments()
         {
@@ -38,7 +40,7 @@ namespace Trello.Controllers
         }
 
         // GET: api/CardAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetComment([FromRoute] int id)
         {
@@ -60,7 +62,7 @@ namespace Trello.Controllers
         }
 
         // PUT: api/CommentAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPut]
         public IActionResult PutComment([FromBody]CommentBLL comment)
         {
@@ -87,7 +89,7 @@ namespace Trello.Controllers
         }
 
         // POST: api/CommentAPI
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPost]
         public IActionResult PostComment([FromBody]CommentBLL comment)
         {
@@ -104,7 +106,7 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/CommentAPI/5
-        //[Authorize(Roles = "admin")]
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteComment([FromRoute] int id)
         {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Trello.BLL.Models;
 using Trello.BLL.Services;
+using Trello.Models;
 
 namespace Trello.Controllers
 {
@@ -97,7 +98,7 @@ namespace Trello.Controllers
             try
             {
                 list.User = userId;
-                listService.CreateList(list);                
+                list.Id = listService.CreateList(list);                
 
                 return Ok(list);
             }
@@ -110,7 +111,7 @@ namespace Trello.Controllers
         // DELETE: api/ListAPI/5
         [Authorize]
         [HttpDelete("{id}")]
-        public IActionResult DeleteList([FromRoute] int id)
+        public IActionResult DeleteList([FromRoute] int id, [FromRoute] int userId)
         {
             try
             {
@@ -121,8 +122,8 @@ namespace Trello.Controllers
                 else
                 {
                     listService.DeleteList(id);
-
-                    return Ok();
+                    List<ListBLL> l = listService.GetLists(userId);
+                    return Ok(l);
                 }
             }
             catch (Exception ex)

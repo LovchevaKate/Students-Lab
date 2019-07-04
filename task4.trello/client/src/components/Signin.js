@@ -53,13 +53,15 @@ class SignIn extends Component {
           login: this.state.login
         })
         .then(users => {
-          console.log(users);
           localStorage.setItem("loggedIn", "loggedIn");
           localStorage.setItem("login", users.data.login);
           localStorage.setItem("token", users.data.token);
           localStorage.setItem("userId", users.data.id);
         })
-        .then(this.props.history.push("/board"))
+        .then(() => {
+          this.props.history.push("/board");
+          //timeout(this.props.history.push("/board"), 1000);
+        })
         .catch(e => {
           console.log(e);
         });

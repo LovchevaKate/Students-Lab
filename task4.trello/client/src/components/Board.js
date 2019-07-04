@@ -73,6 +73,11 @@ class Board extends Component {
             Authorization: `Bearer ${localStorage.getItem("token")}`
           }
         })
+        .then(list => {
+          this.setState({
+            list: list.data
+          });
+        })
         .catch(e => {
           console.log(e);
         });
