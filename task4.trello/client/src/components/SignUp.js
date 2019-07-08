@@ -10,28 +10,26 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import NavBar from "./NavBar";
 
 const url = "https://localhost:44342/api/UserAPI";
 
 const styles = theme => ({
-  "@global": {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
-  },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%",
-    marginTop: theme.spacing(3)
+    width: "25%",
+    alignItem: "center",
+    marginTop: theme.spacing(1)
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
@@ -67,7 +65,8 @@ class SignUp extends Component {
     const { classes } = this.props;
 
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="100%">
+        <NavBar />
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

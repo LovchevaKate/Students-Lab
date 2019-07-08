@@ -5,6 +5,7 @@ import TextArea from "react-textarea-autosize";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import Task from "./Task";
+import NavBar from "./NavBar";
 
 let userId = localStorage.getItem("userId");
 const token = `Bearer ${localStorage.getItem("token")}`;
@@ -94,6 +95,7 @@ class Board extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <div style={styles.boardConteiner}>
           {this.state.list.map(item => (
             <Card style={styles.cardConteiner} id={item.id}>

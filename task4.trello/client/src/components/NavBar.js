@@ -61,34 +61,17 @@ class NavBar extends Component {
   };
 
   renderloggedOut = () => {
-    const classes = makeStyles(theme => ({
-      root: {
-        flexGrow: 1
-      },
-      menuButton: {
-        marginRight: theme.spacing(2)
-      },
-      title: {
-        flexGrow: 1
-      }
-    }));
-
     return (
-      <div className={classes.root}>
-        <AppBar position="static">
+      <div>
+        <AppBar position="static" style={{ width: "100%" }}>
           <Toolbar>
-            <Button color="inherit" href="/signin" className={classes.title}>
+            <Button color="inherit" href="/signin">
               Sign In
             </Button>
-            <Button color="inherit" href="/signup" className={classes.title}>
+            <Button color="inherit" href="/signup">
               Sign Up
             </Button>
-            <Button
-              color="inherit"
-              onClick={this.logOffClick}
-              href="/signin"
-              className={classes.title}
-            >
+            <Button color="inherit" onClick={this.logOffClick} href="/signin">
               Log out
             </Button>
           </Toolbar>

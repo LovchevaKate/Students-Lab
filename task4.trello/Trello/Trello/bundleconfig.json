@@ -20,5 +20,12 @@
       "wwwroot/build/static/js/2.562caf97.chunk.js",
       "wwwroot/build/static/js/main.643dcc90.chunk.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/build/static/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/build/static/js/2.0116b5ba.chunk.js",
+      "wwwroot/build/static/js/main.72ea54ed.chunk.js"
+    ]
   }
 ]

@@ -106,7 +106,7 @@ class Task extends Component {
           ))}
         </div>
         <div>
-          <Card style={styles.cardConteiner}>
+          <Card style={styles.newCardContainer}>
             <CardContent>
               <TextArea
                 name="text"
@@ -134,6 +134,10 @@ const styles = {
     marginTop: "25%",
     width: "100%"
   },
+  newCardContainer: {
+    marginTop: "25%"
+  },
+
   buttonCreate: {
     color: "white",
     backgroundColor: "#45D09E",

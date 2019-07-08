@@ -10,27 +10,25 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
+import NavBar from "./NavBar";
 
 const url = "https://localhost:44342/api/Identity/token";
 
 const styles = theme => ({
-  "@global": {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
-  },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%",
+    width: "25%",
+    alignItem: "center",
     marginTop: theme.spacing(1)
   },
   submit: {
@@ -76,7 +74,8 @@ class SignIn extends Component {
     const { classes } = this.props;
 
     return (
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="100%">
+        <NavBar />
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
