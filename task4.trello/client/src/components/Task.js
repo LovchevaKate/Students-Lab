@@ -5,6 +5,9 @@ import TextArea from "react-textarea-autosize";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 
+const url = "https://localhost:44342/api/list";
+const token = `Bearer ${localStorage.getItem("token")}`;
+
 class Board extends Component {
   state = {
     card: [],
@@ -19,9 +22,9 @@ class Board extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://localhost:44342/api/list/${this.props.idcard}/CardAPI`, {
+      .get(`${url}/${this.props.idcard}/CardAPI`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
+          Authorization: token
         },
         idList: this.props.idcard
       })
@@ -40,7 +43,7 @@ class Board extends Component {
       e.preventDefault();
       axios
         .post(
-          `https://localhost:44342/api/list/${this.props.idcard}/CardAPI`,
+          `${url}/${this.props.idcard}/CardAPI`,
           {
             list: this.props.idcard,
             text: this.state.text
@@ -68,14 +71,11 @@ class Board extends Component {
   deleteTask = id => {
     try {
       axios
-        .delete(
-          `https://localhost:44342/api/list/${this.props.idcard}/CardAPI/${id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
+        .delete(`${url}/${this.props.idcard}/CardAPI/${id}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
           }
-        )
+        })
         .then(card => {
           this.setState({
             card: card.data

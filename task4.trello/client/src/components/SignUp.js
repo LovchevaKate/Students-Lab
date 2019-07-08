@@ -11,6 +11,8 @@ import { withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 
+const url = "https://localhost:44342/api/UserAPI";
+
 const styles = theme => ({
   "@global": {
     body: {
@@ -48,7 +50,7 @@ class SignUp extends Component {
 
     try {
       axios
-        .post("https://localhost:44342/api/UserAPI", {
+        .post(url, {
           password: this.state.password,
           login: this.state.login
         })

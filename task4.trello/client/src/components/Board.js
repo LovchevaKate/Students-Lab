@@ -6,6 +6,10 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import Task from "./Task";
 
+let userId = localStorage.getItem("userId");
+const token = `Bearer ${localStorage.getItem("token")}`;
+const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+
 class Board extends Component {
   state = {
     list: [],
@@ -19,11 +23,10 @@ class Board extends Component {
   };
 
   componentDidMount() {
-    let userId = localStorage.getItem("userId");
     axios
-      .get(`https://localhost:44342/api/user/${userId}/ListAPI`, {
+      .get(url, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`
+          Authorization: token
         }
       })
       .then(list => {
@@ -38,17 +41,16 @@ class Board extends Component {
 
   createList = () => {
     try {
-      let userId = localStorage.getItem("userId");
       axios
         .post(
-          `https://localhost:44342/api/user/${userId}/ListAPI`,
+          url,
           {
             userId: userId,
             title: this.state.title
           },
           {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`
+              Authorization: token
             }
           }
         )
@@ -70,11 +72,10 @@ class Board extends Component {
 
   deleteList = id => {
     try {
-      let userId = localStorage.getItem("userId");
       axios
-        .delete(`https://localhost:44342/api/user/${userId}/ListAPI/${id}`, {
+        .delete(`${url}/${id}`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+            Authorization: token
           }
         })
         .then(list => {

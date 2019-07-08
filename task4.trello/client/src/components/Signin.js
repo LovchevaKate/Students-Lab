@@ -11,6 +11,8 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
 
+const url = "https://localhost:44342/api/Identity/token";
+
 const styles = theme => ({
   "@global": {
     body: {
@@ -28,7 +30,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1)
   },
   submit: {
@@ -48,7 +50,7 @@ class SignIn extends Component {
 
     try {
       axios
-        .post("https://localhost:44342/api/Identity/token", {
+        .post(url, {
           password: this.state.password,
           login: this.state.login
         })
