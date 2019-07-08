@@ -16,11 +16,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <Route name="signin" exact path="/signin" component={SignIn} />
-          <Route name="signup" exact path="/signup" component={SignUp} />
-          <Route name="board" exact path="/board" component={Board} />
-        </Switch>
+        <Redirect from="/" to="/signin" />;
+        <Route name="signin" exact path="/signin" component={SignIn} />
+        <Route name="signup" exact path="/signup" component={SignUp} />
+        <Route name="board" exact path="/board" component={Board} />
       </Router>
       // <Router>
       //   <div>

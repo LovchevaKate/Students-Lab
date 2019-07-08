@@ -27,7 +27,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "25%",
+    width: "400px",
     alignItem: "center",
     marginTop: theme.spacing(1)
   },
