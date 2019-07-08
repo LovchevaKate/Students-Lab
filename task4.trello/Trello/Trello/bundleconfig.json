@@ -1,0 +1,16 @@
+[
+  {
+    "outputFileName": "wwwroot/build/precache-manifest.19b107527387211419ee7538d6db17fd.min.js",
+    "inputFiles": [
+      "wwwroot/build/precache-manifest.19b107527387211419ee7538d6db17fd.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/build/static/js/2.562caf97.chunk.js",
+      "wwwroot/build/static/js/main.bab42b4d.chunk.js",
+      "wwwroot/build/static/js/runtime~main.a8a9905a.js"
+    ]
+  }
+]

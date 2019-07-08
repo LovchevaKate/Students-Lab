@@ -93,7 +93,7 @@ namespace Trello.Controllers
         {
             try
             {
-                List<UserBLL> users = userService.GetUsers();
+                var users = userService.GetUsers();
                 if (user.Login == null || user.Password == null)
                 {
                     throw new Exception("Error. Password == null or Login == null");

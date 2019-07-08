@@ -24,7 +24,7 @@ namespace Trello.Controllers
         {
             try
             {
-                List<CardBLL> cards = cardService.GetCards(listId);
+                var cards = cardService.GetCards(listId);
 
                 if (cards == null)
                 {
@@ -124,7 +124,7 @@ namespace Trello.Controllers
                 else
                 {
                     cardService.DeleteCard(id);
-                    List<CardBLL> c = cardService.GetCards(listId);
+                    var c = cardService.GetCards(listId);
                     return Ok(c);
                 }
             }

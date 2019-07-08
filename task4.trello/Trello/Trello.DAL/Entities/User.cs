@@ -9,6 +9,6 @@ namespace Trello.DAL.Entities
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public ICollection<List> Lists { get; set; }
+        public virtual ICollection<List> Lists { get; set; }
     }
 }

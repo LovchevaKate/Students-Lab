@@ -24,7 +24,7 @@ namespace Trello.BLL.Services
                 throw new Exception("Error. card == null");
             }
 
-            Card card = new Card() { Text = cardBLL.Text, IdList = cardBLL.List };
+            var card = new Card() { Text = cardBLL.Text, IdList = cardBLL.List };
 
             Database.Cards.Create(card);
             Database.Save();
@@ -63,7 +63,7 @@ namespace Trello.BLL.Services
         public List<CardBLL> GetCards(int listId)
         {
             var cards = Database.Cards.GetAll().Where(x => x.IdList == listId);
-            List<CardBLL> cardsBLL = new List<CardBLL>();
+            var cardsBLL = new List<CardBLL>();
 
             if (cards == null)
             {
@@ -72,7 +72,7 @@ namespace Trello.BLL.Services
 
             foreach (var c in cards)
             {
-                CardBLL cardBLL = new CardBLL() { Id = c.Id, List = c.IdList, Text = c.Text };
+                var cardBLL = new CardBLL() { Id = c.Id, List = c.IdList, Text = c.Text };
 
                 cardsBLL.Add(cardBLL);
             }

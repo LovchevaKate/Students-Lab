@@ -7,7 +7,6 @@ namespace Trello.DAL.Interfaces
         IRepository<User> Users { get; }
         IRepository<List> Lists { get; }
         IRepository<Card> Cards { get; }
-        IRepository<Comment> Comments { get; }
 
         void Save();
     }

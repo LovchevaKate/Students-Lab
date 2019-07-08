@@ -12,7 +12,6 @@ namespace Trello.DAL.Entities
 
         public int? IdList { get; set; }
         [ForeignKey("IdList")]
-        public List List { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public virtual List List { get; set; }
     }
 }

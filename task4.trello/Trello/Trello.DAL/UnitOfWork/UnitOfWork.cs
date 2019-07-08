@@ -13,7 +13,6 @@ namespace Trello.DAL.Repositories
         private UserRepository userRepository;
         private ListRepository listRepository;
         private CardRepository cardRepository;
-        private CommentRepository commentRepository;
 
         public UnitOfWork(ContextDB connectionString)
         {
@@ -49,15 +48,6 @@ namespace Trello.DAL.Repositories
                 if (cardRepository == null)
                     cardRepository = new CardRepository(db);
                 return cardRepository;
-            }
-        }
-        public IRepository<Comment> Comments
-        {
-            get
-            {
-                if (commentRepository == null)
-                    commentRepository = new CommentRepository(db);
-                return commentRepository;
             }
         }
 

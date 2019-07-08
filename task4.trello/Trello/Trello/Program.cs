@@ -12,6 +12,7 @@ namespace Trello
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+            /*.UseWebRoot("build//static")*/;
     }
 }

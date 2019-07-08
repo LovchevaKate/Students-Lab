@@ -16,13 +16,6 @@ namespace Trello.DAL.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            modelBuilder.Entity<Comment>()
-                .HasOne(i => i.Card)
-                .WithMany(i => i.Comments)
-                .HasForeignKey(i => i.IdCard)
-                .OnDelete(DeleteBehavior.Cascade);
-
             modelBuilder.Entity<Card>()
                 .HasOne(i => i.List)
                 .WithMany(i => i.Cards)

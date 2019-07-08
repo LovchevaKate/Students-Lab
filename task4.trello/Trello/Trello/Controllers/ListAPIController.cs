@@ -24,7 +24,7 @@ namespace Trello.Controllers
         {
             try
             {
-                List<ListBLL> lists = listService.GetLists(userId);
+                var lists = listService.GetLists(userId);
 
                 if (lists == null)
                 {
@@ -124,7 +124,7 @@ namespace Trello.Controllers
                 else
                 {
                     listService.DeleteList(id);
-                    List<ListBLL> l = listService.GetLists(userId);
+                    var l = listService.GetLists(userId);
                     return Ok(l);
                 }
             }
