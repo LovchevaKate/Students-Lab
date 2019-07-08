@@ -9,8 +9,16 @@
     "outputFileName": "wwwroot/js/bundle.js",
     "inputFiles": [
       "wwwroot/build/static/js/2.562caf97.chunk.js",
-      "wwwroot/build/static/js/main.bab42b4d.chunk.js",
+      "wwwroot/build/static/js/main.643dcc90.chunk.js",
       "wwwroot/build/static/js/runtime~main.a8a9905a.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/build/bundle.js",
+    "inputFiles": [
+      "wwwroot/build/static/js/runtime~main.a8a9905a.js",
+      "wwwroot/build/static/js/2.562caf97.chunk.js",
+      "wwwroot/build/static/js/main.643dcc90.chunk.js"
     ]
   }
 ]

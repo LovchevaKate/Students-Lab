@@ -8,7 +8,6 @@ namespace Trello.DAL.Context
         public DbSet<User> Users { get; set; }
         public DbSet<List> Lists { get; set; }
         public DbSet<Card> Cards { get; set; }
-        public DbSet<Comment> Comments { get; set; }
 
         public ContextDB(DbContextOptions<ContextDB> options) : base(options)
         {

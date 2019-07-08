@@ -37,7 +37,6 @@ namespace Trello
             services.AddTransient<UserService>();
             services.AddTransient<ListService>();
             services.AddTransient<CardService>();
-            services.AddTransient<CommentService>();
             services.AddTransient<UnitOfWork>();
 
             services.AddMvc();
@@ -71,7 +70,6 @@ namespace Trello
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            app.UseDefaultFiles();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();

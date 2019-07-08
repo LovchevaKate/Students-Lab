@@ -8,7 +8,7 @@ import axios from "axios";
 const url = "https://localhost:44342/api/list";
 const token = `Bearer ${localStorage.getItem("token")}`;
 
-class Board extends Component {
+class Task extends Component {
   state = {
     card: [],
     text: ""
@@ -94,22 +94,11 @@ class Board extends Component {
       <div>
         <div>
           {this.state.card.map(item => (
-            <Card
-              style={{
-                color: "#2F3640",
-                backgroundColor: "#45D09E",
-                marginTop: "10px",
-                width: "100%"
-              }}
-            >
+            <Card style={styles.cardConteiner}>
               <CardContent>{item.text}</CardContent>
               <Button
                 onClick={() => this.deleteTask(item.id)}
-                style={{
-                  color: "white",
-                  backgroundColor: "#E85668",
-                  margin: "10px"
-                }}
+                style={styles.buttonDelete}
               >
                 Delete Task
               </Button>
@@ -117,11 +106,7 @@ class Board extends Component {
           ))}
         </div>
         <div>
-          <Card
-            style={{
-              marginTop: "25%"
-            }}
-          >
+          <Card style={styles.cardConteiner}>
             <CardContent>
               <TextArea
                 name="text"
@@ -129,23 +114,10 @@ class Board extends Component {
                 value={this.state.text}
                 onChange={this.handleInputChange}
                 placeholder="Enter task text"
-                style={{
-                  resize: "none",
-                  width: "100%",
-                  overflow: "hidden",
-                  outline: "none",
-                  border: "none"
-                }}
+                style={styles.textArea}
               />
             </CardContent>
-            <Button
-              onClick={this.createCard}
-              style={{
-                color: "white",
-                backgroundColor: "#45D09E",
-                margin: "10px"
-              }}
-            >
+            <Button onClick={this.createCard} style={styles.buttonCreate}>
               Create Task
             </Button>
           </Card>
@@ -155,4 +127,31 @@ class Board extends Component {
   }
 }
 
-export default Board;
+const styles = {
+  cardConteiner: {
+    color: "#2F3640",
+    backgroundColor: "#45D09E",
+    marginTop: "25%",
+    width: "100%"
+  },
+  buttonCreate: {
+    color: "white",
+    backgroundColor: "#45D09E",
+    margin: "10px"
+  },
+  buttonDelete: {
+    color: "white",
+    backgroundColor: "#E85668",
+    margin: "15px"
+  },
+  textArea: {
+    resize: "none",
+    width: "100%",
+    overflow: "hidden",
+    outline: "none",
+    border: "none",
+    padding: "10px"
+  }
+};
+
+export default Task;

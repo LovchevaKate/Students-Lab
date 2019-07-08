@@ -138,4 +138,4 @@ D:\SL\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.Vie
 D:\SL\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.csproj.CopyComplete
 D:\SL\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.dll
 D:\SL\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Trello.pdb
-D:\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Index.g.cshtml.cs
+D:\Students-Lab\task4.trello\Trello\Trello\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs

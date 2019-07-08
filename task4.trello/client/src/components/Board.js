@@ -104,11 +104,7 @@ class Board extends Component {
 
               <Button
                 onClick={() => this.deleteList(item.id)}
-                style={{
-                  color: "white",
-                  backgroundColor: "#E85668",
-                  margin: "15px"
-                }}
+                style={styles.buttonDelete}
               >
                 Delete Card
               </Button>
@@ -124,24 +120,9 @@ class Board extends Component {
               value={this.state.title}
               onChange={this.handleInputChange}
               placeholder="Enter list title"
-              style={{
-                resize: "none",
-                width: "100%",
-                overflow: "hidden",
-                outline: "none",
-                border: "none",
-                padding: "10px"
-              }}
+              style={styles.textArea}
             />
-
-            <Button
-              onClick={this.createList}
-              style={{
-                color: "white",
-                backgroundColor: "#45D09E",
-                margin: "10px"
-              }}
-            >
+            <Button onClick={this.createList} style={styles.buttonCreate}>
               Create new Card
             </Button>
           </Card>
@@ -161,6 +142,24 @@ const styles = {
     borderRadius: 3,
     margin: 10,
     height: "100%"
+  },
+  buttonCreate: {
+    color: "white",
+    backgroundColor: "#45D09E",
+    margin: "10px"
+  },
+  buttonDelete: {
+    color: "white",
+    backgroundColor: "#E85668",
+    margin: "15px"
+  },
+  textArea: {
+    resize: "none",
+    width: "100%",
+    overflow: "hidden",
+    outline: "none",
+    border: "none",
+    padding: "10px"
   }
 };
 
