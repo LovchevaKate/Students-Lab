@@ -5,28 +5,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 
 class NavBar extends Component {
-  state = {
-    isOpen: false,
-    LoggedIn: false
-  };
-
   logOffClick = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("login");
-    this.setState({
-      LoggedIn: false
-    });
   };
 
   renderloggedIn = () => {
-    let loggedIn = localStorage.getItem("loggedIn");
-    if (loggedIn === "loggedIn")
-      this.setState({
-        LoggedIn: true
-      });
-
     const classes = makeStyles(theme => ({
       root: {
         flexGrow: 1
@@ -49,7 +35,7 @@ class NavBar extends Component {
             <Button
               color="inherit"
               onClick={this.logOffClick}
-              href="/signin"
+              href="/"
               className={classes.title}
             >
               Log out
@@ -81,9 +67,9 @@ class NavBar extends Component {
   };
 
   render() {
-    console.log(this.state.LoggedIn);
-
-    return this.state.LoggedIn ? this.renderloggedIn() : this.renderloggedOut();
+    return localStorage.getItem("loggedIn")
+      ? this.renderloggedIn()
+      : this.renderloggedOut();
   }
 }
 

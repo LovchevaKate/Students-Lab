@@ -14,7 +14,8 @@ const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
 class Board extends Component {
   state = {
     list: [],
-    title: ""
+    title: "",
+    LoggedIn: true
   };
 
   handleInputChange = e => {
