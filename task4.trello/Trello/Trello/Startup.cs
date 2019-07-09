@@ -70,16 +70,16 @@ namespace Trello
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
-                bool t = env.IsDevelopment();
-                if (env.IsDevelopment())
-                {
+               
+                //if (env.IsDevelopment())
+                //{
                     spa.UseReactDevelopmentServer(npmScript: "start");
-                }
-                else
-                {
-                    app.UseExceptionHandler("/Home/Error");
-                    app.UseHsts();
-                }
+                //}
+                //else
+                //{
+                //    app.UseExceptionHandler("/Home/Error");
+                //    app.UseHsts();
+                //}
             });
 
             //if (env.IsDevelopment())
@@ -97,8 +97,6 @@ namespace Trello
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
-
-            
 
             //app.UseMvc(routes =>
             //{
