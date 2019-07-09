@@ -48,14 +48,14 @@ class SignUp extends Component {
 
     try {
       axios
-        .post(url, {
+          .post("https://localhost:44342/api/UserAPI", {
           password: this.state.password,
           login: this.state.login
         })
         .catch(e => {
           alert(e);
         });
-      this.props.history.push("/signin");
+      this.props.history.push("/");
     } catch (e) {
       alert(e);
     }

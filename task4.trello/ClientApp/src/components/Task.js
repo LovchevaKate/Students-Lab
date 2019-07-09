@@ -21,6 +21,8 @@ class Task extends Component {
   };
 
   componentDidMount() {
+    const url = "https://localhost:44342/api/list";
+    const token = `Bearer ${localStorage.getItem("token")}`;
     axios
       .get(`${url}/${this.props.idcard}/CardAPI`, {
         headers: {
@@ -94,7 +96,7 @@ class Task extends Component {
       <div>
         <div>
           {this.state.card.map(item => (
-            <Card style={styles.cardConteiner}>
+            <Card style={styles.cardConteiner} key={item.id}>
               <CardContent>{item.text}</CardContent>
               <Button
                 onClick={() => this.deleteTask(item.id)}

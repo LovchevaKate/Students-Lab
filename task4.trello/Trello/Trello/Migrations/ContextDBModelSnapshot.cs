@@ -36,23 +36,6 @@ namespace Trello.Migrations
                     b.ToTable("Cards");
                 });
 
-            modelBuilder.Entity("Trello.DAL.Entities.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("IdCard");
-
-                    b.Property<string>("Text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdCard");
-
-                    b.ToTable("Comments");
-                });
-
             modelBuilder.Entity("Trello.DAL.Entities.List", b =>
                 {
                     b.Property<int>("Id")
@@ -90,14 +73,6 @@ namespace Trello.Migrations
                     b.HasOne("Trello.DAL.Entities.List", "List")
                         .WithMany("Cards")
                         .HasForeignKey("IdList")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Trello.DAL.Entities.Comment", b =>
-                {
-                    b.HasOne("Trello.DAL.Entities.Card", "Card")
-                        .WithMany("Comments")
-                        .HasForeignKey("IdCard")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

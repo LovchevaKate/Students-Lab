@@ -58,8 +58,6 @@ class SignIn extends Component {
           localStorage.setItem("token", users.data.token);
           localStorage.setItem("userId", users.data.id);
           this.setState({ LoggedIn: true });
-        })
-        .then(() => {
           this.props.history.push("/board");
         })
         .catch(e => {

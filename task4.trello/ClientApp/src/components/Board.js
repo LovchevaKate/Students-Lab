@@ -8,7 +8,7 @@ import Task from "./Task";
 import NavBar from "./NavBar";
 
 let userId = localStorage.getItem("userId");
-const token = `Bearer ${localStorage.getItem("token")}`;
+let token = `Bearer ${localStorage.getItem("token")}`;
 const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
 
 class Board extends Component {
@@ -24,6 +24,9 @@ class Board extends Component {
   };
 
   componentDidMount() {
+    let userId = localStorage.getItem("userId");
+    let token = `Bearer ${localStorage.getItem("token")}`;
+    const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
     axios
       .get(url, {
         headers: {
