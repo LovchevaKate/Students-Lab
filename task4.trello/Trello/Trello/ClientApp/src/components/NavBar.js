@@ -65,13 +65,13 @@ class NavBar extends Component {
       <div>
         <AppBar position="static" style={{ width: "100%" }}>
           <Toolbar>
-            <Button color="inherit" href="/signin">
+            <Button color="inherit" href="/">
               Sign In
             </Button>
             <Button color="inherit" href="/signup">
               Sign Up
             </Button>
-            <Button color="inherit" onClick={this.logOffClick} href="/signin">
+            <Button color="inherit" onClick={this.logOffClick} href="/">
               Log out
             </Button>
           </Toolbar>
