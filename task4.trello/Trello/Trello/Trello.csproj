@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Trello.BLL\Trello.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientApp\" />
+  </ItemGroup>
+
 </Project>
