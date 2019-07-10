@@ -38,7 +38,7 @@ namespace Trello.Controllers
                     audience: AuthOptions.AUDIENCE,
                     notBefore: now,
                     claims: identity,
-                    expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                    //expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
                     signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
             var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
             userHelper.Token = encodedJwt;
