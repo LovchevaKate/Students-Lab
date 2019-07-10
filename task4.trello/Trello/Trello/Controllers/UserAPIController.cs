@@ -27,7 +27,7 @@ namespace Trello.Controllers
 
                 if (user == null)
                 {
-                    throw new Exception("users don't found");
+                    throw new Exception("Error. Users not found");
                 }
 
                 return Ok(user);
@@ -49,7 +49,7 @@ namespace Trello.Controllers
 
                 if (user == null)
                 {
-                    throw new Exception("user doesn't found");
+                    throw new Exception("Error. User not found");
                 }
 
                 return Ok(user);
@@ -69,12 +69,12 @@ namespace Trello.Controllers
             {
                 if (user == null)
                 {
-                    throw new Exception("user==null");
+                    throw new Exception("Error. User in request is null");
                 }
 
                 if (userService.GetUser(user.Id) == null)
                 {
-                    throw new Exception("user doesn't found");
+                    throw new Exception("Error. User not found");
                 }
 
                 userService.UpdateUser(user);
@@ -125,7 +125,7 @@ namespace Trello.Controllers
             {
                 if (userService.GetUser(id) == null)
                 {
-                    throw new Exception("Error. user doesn't found");
+                    throw new Exception("Error. User not found");
                 }
                 else
                 {

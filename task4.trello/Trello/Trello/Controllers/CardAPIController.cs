@@ -9,6 +9,7 @@ namespace Trello.Controllers
 {
     [Route("api/list/{listId}/[controller]")]
     [ApiController]
+    [Authorize]
     public class CardAPIController : ControllerBase
     {
         readonly CardService cardService;
@@ -17,8 +18,7 @@ namespace Trello.Controllers
             cardService = serv;
         }
 
-        // GET: api/CardAPI
-        [Authorize]
+        // GET: api/CardAPI        
         [HttpGet]
         public IActionResult GetCards([FromRoute] int listId)
         {
@@ -28,7 +28,7 @@ namespace Trello.Controllers
 
                 if (cards == null)
                 {
-                    throw new Exception("cards don't found");
+                    throw new Exception("Error. Cards not found");
                 }
 
                 return Ok(cards);
@@ -40,7 +40,6 @@ namespace Trello.Controllers
         }
 
         // GET: api/CardAPI/5
-        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetCard([FromRoute] int id)
         {
@@ -50,7 +49,7 @@ namespace Trello.Controllers
 
                 if (card == null)
                 {
-                    throw new Exception("card doesn't found");
+                    throw new Exception("Error. Card not found");
                 }
 
                 return Ok(card);
@@ -62,7 +61,6 @@ namespace Trello.Controllers
         }
 
         // PUT: api/CardAPI
-        [Authorize]
         [HttpPut]
         public IActionResult PutCard([FromBody]CardBLL card)
         {
@@ -70,12 +68,12 @@ namespace Trello.Controllers
             {
                 if (card == null)
                 {
-                    throw new Exception("card==null");
+                    throw new Exception("Error. Card in request is null");
                 }
 
                 if (cardService.GetCard(card.Id) == null)
                 {
-                    throw new Exception("card doesn't found");
+                    throw new Exception("Error. Card not found");
                 }
 
                 cardService.UpdateCard(card);
@@ -89,15 +87,14 @@ namespace Trello.Controllers
         }
 
         // POST: api/CardAPI
-        [Authorize]
         [HttpPost]
         public IActionResult PostCard([FromBody]CardBLL card)
         {
             try
             {
-                if (card.Text == null)
+                if (card.Text == "")
                 {
-                    return BadRequest();
+                    throw new Exception("Error. Card in request is null");
                 }
 
                 card.Id = cardService.CreateCard(card);
@@ -111,7 +108,6 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/CardAPI/5
-        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteCard([FromRoute] int id, [FromRoute] int listId)
         {
@@ -119,7 +115,7 @@ namespace Trello.Controllers
             {
                 if (cardService.GetCard(id) == null)
                 {
-                    throw new Exception("Error. card doesn't found");
+                    throw new Exception("Error. Card not found");
                 }
                 else
                 {

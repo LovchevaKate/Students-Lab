@@ -9,6 +9,7 @@ namespace Trello.Controllers
 {
     [Route("api/user/{userId}/[controller]")]
     [ApiController]
+    [Authorize]
     public class ListAPIController : ControllerBase
     {
         readonly ListService listService;
@@ -17,8 +18,7 @@ namespace Trello.Controllers
             listService = serv;
         }
 
-        // GET: api/ListAPI
-        [Authorize]
+        // GET: api/ListAPI        
         [HttpGet]
         public IActionResult GetLists([FromRoute] int userId)
         {
@@ -28,7 +28,7 @@ namespace Trello.Controllers
 
                 if (lists == null)
                 {
-                    throw new Exception("users don't found");
+                    throw new Exception("Error. Lists not found");
                 }
 
                 return Ok(lists);
@@ -40,7 +40,6 @@ namespace Trello.Controllers
         }
 
         // GET: api/ListAPI/5
-        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetList([FromRoute] int id)
         {
@@ -50,7 +49,7 @@ namespace Trello.Controllers
 
                 if (list == null)
                 {
-                    throw new Exception("list doesn't found");
+                    throw new Exception("Error. List not found");
                 }
 
                 return Ok(list);
@@ -62,7 +61,6 @@ namespace Trello.Controllers
         }
 
         // PUT: api/ListAPI
-        [Authorize]
         [HttpPut]
         public IActionResult PutList([FromBody]ListBLL list)
         {
@@ -70,12 +68,12 @@ namespace Trello.Controllers
             {
                 if (list == null)
                 {
-                    throw new Exception("list==null");
+                    throw new Exception("Error. List in request is null");
                 }
 
                 if (listService.GetList(list.Id) == null)
                 {
-                    throw new Exception("list doesn't found");
+                    throw new Exception("Error. List not found");
                 }
 
                 listService.UpdateList(list);
@@ -89,7 +87,6 @@ namespace Trello.Controllers
         }
 
         // POST: api/ListAPI
-        [Authorize]
         [HttpPost]
         public IActionResult PostList([FromBody]ListBLL list, [FromRoute]int userId)
         {
@@ -111,7 +108,6 @@ namespace Trello.Controllers
         }
 
         // DELETE: api/ListAPI/5
-        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult DeleteList([FromRoute] int id, [FromRoute] int userId)
         {
@@ -119,7 +115,7 @@ namespace Trello.Controllers
             {
                 if (listService.GetList(id) == null)
                 {
-                    throw new Exception("Error. list doesn't found");
+                    throw new Exception("Error. List not found");
                 }
                 else
                 {
