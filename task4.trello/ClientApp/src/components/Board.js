@@ -20,25 +20,25 @@ class Board extends Component {
     });
   };
 
-  componentDidMount() {
-    let userId = localStorage.getItem("userId");
-    let token = `Bearer ${localStorage.getItem("token")}`;
-    let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
-    axios
-      .get(url, {
-        headers: {
-          Authorization: token
-        }
-      })
-      .then(list => {
-        this.setState({
-          list: list.data
-        });
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  }
+  // componentDidMount() {
+  //   let userId = localStorage.getItem("userId");
+  //   let token = `Bearer ${localStorage.getItem("token")}`;
+  //   let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+  //   axios
+  //     .get(url, {
+  //       headers: {
+  //         Authorization: token
+  //       }
+  //     })
+  //     .then(list => {
+  //       this.setState({
+  //         list: list.data
+  //       });
+  //     })
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // }
 
   createList = () => {
     let userId = localStorage.getItem("userId");
@@ -91,13 +91,12 @@ class Board extends Component {
   };
 
   render() {
-    const { lists } = this.props.lists;
     console.log(this.props.lists);
     return (
       <div>
         <NavBar />
         <div style={styles.boardConteiner}>
-          {lists.map(item => (
+          {this.props.lists.map(item => (
             <Card style={styles.cardConteiner} id={item.id} key={item.id}>
               <CardContent>
                 {item.title}
