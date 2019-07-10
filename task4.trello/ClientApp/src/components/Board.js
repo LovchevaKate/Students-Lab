@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 import Task from "./Task";
 import NavBar from "./NavBar";
+import { connect } from "react-redux";
 
 class Board extends Component {
   state = {
@@ -90,11 +91,13 @@ class Board extends Component {
   };
 
   render() {
+    const { lists } = this.props.lists;
+    console.log(this.props.lists);
     return (
       <div>
         <NavBar />
         <div style={styles.boardConteiner}>
-          {this.state.list.map(item => (
+          {lists.map(item => (
             <Card style={styles.cardConteiner} id={item.id} key={item.id}>
               <CardContent>
                 {item.title}
@@ -165,4 +168,8 @@ const styles = {
   }
 };
 
-export default Board;
+const mapStateToProps = state => ({
+  lists: state.lists
+});
+
+export default connect(mapStateToProps)(Board);
