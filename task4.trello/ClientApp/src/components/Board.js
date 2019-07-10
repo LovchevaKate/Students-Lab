@@ -7,15 +7,10 @@ import axios from "axios";
 import Task from "./Task";
 import NavBar from "./NavBar";
 
-let userId = localStorage.getItem("userId");
-let token = `Bearer ${localStorage.getItem("token")}`;
-const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
-
 class Board extends Component {
   state = {
     list: [],
-    title: "",
-    LoggedIn: true
+    title: ""
   };
 
   handleInputChange = e => {
@@ -27,7 +22,7 @@ class Board extends Component {
   componentDidMount() {
     let userId = localStorage.getItem("userId");
     let token = `Bearer ${localStorage.getItem("token")}`;
-    const url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+    let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
     axios
       .get(url, {
         headers: {
@@ -45,55 +40,53 @@ class Board extends Component {
   }
 
   createList = () => {
-    try {
-      axios
-        .post(
-          url,
-          {
-            userId: userId,
-            title: this.state.title
-          },
-          {
-            headers: {
-              Authorization: token
-            }
-          }
-        )
-        .then(list => {
-          this.setState({
-            list: [...this.state.list, list.data]
-          });
-          this.setState({
-            title: ""
-          });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  deleteList = id => {
-    try {
-      axios
-        .delete(`${url}/${id}`, {
+    let userId = localStorage.getItem("userId");
+    let token = `Bearer ${localStorage.getItem("token")}`;
+    let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+    axios
+      .post(
+        url,
+        {
+          userId: userId,
+          title: this.state.title
+        },
+        {
           headers: {
             Authorization: token
           }
-        })
-        .then(list => {
-          this.setState({
-            list: list.data
-          });
-        })
-        .catch(e => {
-          console.log(e);
+        }
+      )
+      .then(list => {
+        this.setState({
+          list: [...this.state.list, list.data]
         });
-    } catch (e) {
-      console.log(e);
-    }
+        this.setState({
+          title: ""
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  deleteList = id => {
+    let userId = localStorage.getItem("userId");
+    let token = `Bearer ${localStorage.getItem("token")}`;
+    let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+    axios
+      .delete(`${url}/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      })
+      .then(list => {
+        this.setState({
+          list: list.data
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
 
   render() {
@@ -102,7 +95,7 @@ class Board extends Component {
         <NavBar />
         <div style={styles.boardConteiner}>
           {this.state.list.map(item => (
-            <Card style={styles.cardConteiner} id={item.id}>
+            <Card style={styles.cardConteiner} id={item.id} key={item.id}>
               <CardContent>
                 {item.title}
                 <Task idcard={item.id} />
@@ -141,10 +134,13 @@ class Board extends Component {
 const styles = {
   boardConteiner: {
     display: "flex",
-    margin: 10
+    flexWrap: "wrap",
+    margin: 10,
+    width: "100%"
   },
   cardConteiner: {
-    width: 200,
+    maxWidth: 200,
+    minWidth: 200,
     borderRadius: 3,
     margin: 10,
     height: "100%"

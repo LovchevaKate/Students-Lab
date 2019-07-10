@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button";
 import axios from "axios";
 
 const url = "https://localhost:44342/api/list";
-const token = `Bearer ${localStorage.getItem("token")}`;
 
 class Task extends Component {
   state = {
@@ -41,54 +40,46 @@ class Task extends Component {
   }
 
   createCard = async e => {
-    try {
-      e.preventDefault();
-      axios
-        .post(
-          `${url}/${this.props.idcard}/CardAPI`,
-          {
-            list: this.props.idcard,
-            text: this.state.text
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`
-            }
-          }
-        )
-        .then(card => {
-          this.setState({
-            card: [...this.state.card, card.data]
-          });
-          this.setState({ text: "" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  deleteTask = id => {
-    try {
-      axios
-        .delete(`${url}/${this.props.idcard}/CardAPI/${id}`, {
+    e.preventDefault();
+    axios
+      .post(
+        `${url}/${this.props.idcard}/CardAPI`,
+        {
+          list: this.props.idcard,
+          text: this.state.text
+        },
+        {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
           }
-        })
-        .then(card => {
-          this.setState({
-            card: card.data
-          });
-        })
-        .catch(e => {
-          console.log(e);
+        }
+      )
+      .then(card => {
+        this.setState({
+          card: [...this.state.card, card.data]
         });
-    } catch (e) {
-      console.log(e);
-    }
+        this.setState({ text: "" });
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  deleteTask = id => {
+    axios
+      .delete(`${url}/${this.props.idcard}/CardAPI/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      })
+      .then(card => {
+        this.setState({
+          card: card.data
+        });
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
 
   render() {

@@ -37,7 +37,7 @@ const styles = theme => ({
 });
 
 class SignIn extends Component {
-  state = { login: "", password: "", LoggedIn: false };
+  state = { login: "", password: "" };
 
   onChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
@@ -46,26 +46,21 @@ class SignIn extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    try {
-      axios
-        .post(url, {
-          password: this.state.password,
-          login: this.state.login
-        })
-        .then(users => {
-          localStorage.setItem("loggedIn", "loggedIn");
-          localStorage.setItem("login", users.data.login);
-          localStorage.setItem("token", users.data.token);
-          localStorage.setItem("userId", users.data.id);
-          this.setState({ LoggedIn: true });
-          this.props.history.push("/board");
-        })
-        .catch(e => {
-          alert(e);
-        });
-    } catch (e) {
-      alert(e);
-    }
+    axios
+      .post(url, {
+        password: this.state.password,
+        login: this.state.login
+      })
+      .then(users => {
+        localStorage.setItem("loggedIn", "loggedIn");
+        localStorage.setItem("login", users.data.login);
+        localStorage.setItem("token", users.data.token);
+        localStorage.setItem("userId", users.data.id);
+        this.props.history.push("/board");
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
 
   render() {
