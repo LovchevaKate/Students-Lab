@@ -7,6 +7,7 @@ import axios from "axios";
 import Task from "./Task";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
+import { addList, getLists } from "../actions";
 
 class Board extends Component {
   state = {
@@ -40,34 +41,45 @@ class Board extends Component {
   //     });
   // }
 
+  componentWillMount() {
+    const { dispatch } = this.props;
+    dispatch(getLists());
+    return;
+  }
+
+  // createList = () => {
+  //   let userId = localStorage.getItem("userId");
+  //   let token = `Bearer ${localStorage.getItem("token")}`;
+  //   let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
+  //   axios
+  //     .post(
+  //       url,
+  //       {
+  //         userId: userId,
+  //         title: this.state.title
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: token
+  //         }
+  //       }
+  //     )
+  //     .then(list => {
+  //       this.setState({
+  //         list: [...this.state.list, list.data]
+  //       });
+  //       this.setState({
+  //         title: ""
+  //       });
+  //     })
+  //     .catch(e => {
+  //       console.log(e);
+  //     });
+  // };
   createList = () => {
-    let userId = localStorage.getItem("userId");
-    let token = `Bearer ${localStorage.getItem("token")}`;
-    let url = `https://localhost:44342/api/user/${userId}/ListAPI`;
-    axios
-      .post(
-        url,
-        {
-          userId: userId,
-          title: this.state.title
-        },
-        {
-          headers: {
-            Authorization: token
-          }
-        }
-      )
-      .then(list => {
-        this.setState({
-          list: [...this.state.list, list.data]
-        });
-        this.setState({
-          title: ""
-        });
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    const { dispatch } = this.props;
+    dispatch(addList(this.state.title));
+    return;
   };
 
   deleteList = id => {
@@ -91,12 +103,13 @@ class Board extends Component {
   };
 
   render() {
-    console.log(this.props.lists);
+    const { lists } = this.props;
+
     return (
       <div>
         <NavBar />
         <div style={styles.boardConteiner}>
-          {this.props.lists.map(item => (
+          {lists.map(item => (
             <Card style={styles.cardConteiner} id={item.id} key={item.id}>
               <CardContent>
                 {item.title}
@@ -167,8 +180,6 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => ({
-  lists: state.lists
-});
+const mapStateToProps = state => ({ lists: state.lists });
 
 export default connect(mapStateToProps)(Board);
